@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetopoo.view.requisicaocompraview.AlterarRequisicaoControllerView">
+   <children>
+      <Label fx:id="lblTitulo" layoutX="179.0" layoutY="21.0" text="Alterar requisição de compras">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btConcluir" layoutX="512.0" layoutY="357.0" mnemonicParsing="false" onAction="#btConcluir" text="CONCLUIR" />
+      <Button fx:id="btRemover" layoutX="430.0" layoutY="357.0" mnemonicParsing="false" onAction="#removerRequisicao" prefHeight="25.0" prefWidth="74.0" text="REMOVER" />
+      <Button fx:id="btCancelar" layoutX="345.0" layoutY="357.0" mnemonicParsing="false" onAction="#btCancelar" text="CANCELAR" />
+      <Label fx:id="lblQuantidade" layoutX="417.0" layoutY="71.0" text="Quantidade: ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfQtd" layoutX="498.0" layoutY="69.0" onAction="#alterarQtdDesejada" prefHeight="25.0" prefWidth="44.0" />
+      <DatePicker fx:id="dpDataDeEntrega" layoutX="417.0" layoutY="188.0" onAction="#alterarData" promptText="Informe a data" />
+      <Label fx:id="lblDataEntrega" layoutX="416.0" layoutY="168.0" text="Data de entrega:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tbRequisicao" layoutX="14.0" layoutY="69.0" prefHeight="281.0" prefWidth="392.0">
+        <columns>
+          <TableColumn fx:id="tcNome" prefWidth="192.0" text="Descrição" />
+          <TableColumn fx:id="tcQtd" prefWidth="41.0" text="Qtd" />
+            <TableColumn fx:id="tcDataDeEntrega" prefWidth="95.0" text="Data de entrega" />
+            <TableColumn fx:id="tcStatus" prefWidth="63.0" text="Status" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

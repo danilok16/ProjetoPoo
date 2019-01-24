@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetopoo.view.forncedorview.MenuFornecedorControllerView">
+   <children>
+      <Label fx:id="lblTitulo" layoutX="194.0" layoutY="26.0" text="MENU FORNECEDOR">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btConsultar" layoutX="179.0" layoutY="187.0" mnemonicParsing="false" onAction="#startConsultar" text="CONSULTAR" />
+      <Button fx:id="btCadastrar" layoutX="180.0" layoutY="131.0" mnemonicParsing="false" onAction="#startCadastrar" text="CADASTRAR" />
+      <Button fx:id="btRemover" layoutX="304.0" layoutY="130.0" mnemonicParsing="false" onAction="#startRemover" prefHeight="26.0" prefWidth="83.0" text="REMOVER" />
+      <Button fx:id="btAlterar" layoutX="305.0" layoutY="187.0" mnemonicParsing="false" onAction="#startAlterar" prefHeight="25.0" prefWidth="82.0" text="ALTERAR" />
+      <Button fx:id="btVoltar" layoutX="262.0" layoutY="235.0" mnemonicParsing="false" onAction="#voltar" text="VOLTAR" />
+   </children>
+</AnchorPane>

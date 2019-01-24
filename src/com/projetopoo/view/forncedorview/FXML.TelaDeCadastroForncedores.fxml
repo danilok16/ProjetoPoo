@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetopoo.view.forncedorview.CadastroFornecedorControllerView">
+   <children>
+      <Text layoutX="167.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CADASTRO DE FORNECEDOR" AnchorPane.topAnchor="50.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="98.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RAZÃO SOCIAL:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="98.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CNPJ:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tfCNPJ" layoutX="223.0" layoutY="149.0" prefHeight="25.0" prefWidth="240.0" />
+      <TextField fx:id="tfRazaoS" layoutX="223.0" layoutY="191.0" prefHeight="25.0" prefWidth="240.0" />
+      <Button fx:id="btCadastrarFornecedor" layoutX="449.0" layoutY="327.0" mnemonicParsing="false" onAction="#cadastrarFornecedor" prefHeight="25.0" prefWidth="110.0" text="CADASTRAR" />
+      <Button fx:id="btCancelar" layoutX="322.0" layoutY="327.0" mnemonicParsing="false" onAction="#voltarTelaMenu" prefHeight="25.0" prefWidth="110.0" text="VOLTAR" />
+   </children>
+</AnchorPane>

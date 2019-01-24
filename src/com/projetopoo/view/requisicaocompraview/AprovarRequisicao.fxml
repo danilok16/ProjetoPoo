@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="793.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetopoo.view.requisicaocompraview.AprovarRequisicaoControllerView">
+   <children>
+      <TableView fx:id="tbViewRequisicoes" layoutX="592.0" layoutY="72.0" prefHeight="395.0" prefWidth="194.0">
+        <columns>
+          <TableColumn fx:id="tbCRequisicao" prefWidth="248.80001220703124" text="REQUISIÇÕES" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <TextField fx:id="tfQtd" layoutX="107.0" layoutY="257.0" prefHeight="26.0" prefWidth="103.0" />
+      <TextField fx:id="tfDescricao" layoutX="91.0" layoutY="219.0" prefHeight="26.0" prefWidth="420.0" />
+      <TextField fx:id="tfIdRequisitante" layoutX="126.0" layoutY="182.0" prefHeight="26.0" prefWidth="130.0" />
+      <TextField fx:id="tfValorTotal" layoutX="65.0" layoutY="295.0" prefHeight="26.0" prefWidth="103.0" />
+      <TextField fx:id="tfStatus" layoutX="66.0" layoutY="412.0" prefHeight="26.0" prefWidth="120.0" />
+      <TextField fx:id="tfIdRequisicao" layoutX="126.0" layoutY="149.0" prefHeight="26.0" prefWidth="130.0" />
+      <TextField fx:id="tfDataSolicitacao" layoutX="163.0" layoutY="335.0" prefHeight="26.0" prefWidth="149.0" />
+      <TextField fx:id="tfDataEntrega" layoutX="163.0" layoutY="365.0" prefHeight="26.0" prefWidth="150.0" />
+      <TextField fx:id="tfAprovador" layoutX="126.0" layoutY="114.0" onAction="#requisicoes" prefHeight="26.0" prefWidth="129.0" promptText="INFORME O ID" />
+      <Button fx:id="btAprovar" layoutX="10.0" layoutY="467.0" mnemonicParsing="false" onAction="#aprovarRequiscao" prefHeight="26.0" prefWidth="99.0" text="APROVAR" />
+      <Button fx:id="btVoltar" layoutX="679.0" layoutY="490.0" mnemonicParsing="false" onAction="#backToMenuRequisicao" prefHeight="26.0" prefWidth="99.0" text="VOLTAR" />
+      <Label layoutX="13.0" layoutY="117.0" text="ID_APROVADOR:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="152.0" text="ID_REQUISIÇÃO:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="185.0" text="REQUISITANTE:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="10.0" layoutY="222.0" text="DESCRIÇÃO: ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="8.0" layoutY="260.0" text="QUANTIDADE: ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="9.0" layoutY="299.0" text="VALOR:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="4.0" layoutY="338.0" text="DATA DE SOLICITAÇÃO:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="4.0" layoutY="368.0" text="DATA DE ENTREGA:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="6.0" layoutY="416.0" text="STATUS:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="213.0" layoutY="30.0" text="Aprovar Requisições">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btVoltar1" layoutX="126.0" layoutY="467.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="99.0" text="REPROVAR" />
+   </children>
+</AnchorPane>

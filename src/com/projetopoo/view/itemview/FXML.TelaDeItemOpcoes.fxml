@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetopoo.view.itemview.TelaDeItemOpcoesControllerView">
+   <children>
+      <Button fx:id="btCadatrarItem" layoutX="185.0" layoutY="129.0" mnemonicParsing="false" onAction="#startCadastroItem" prefHeight="34.0" prefWidth="230.0" text="CADASTRAR ITEM">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btListarItens" layoutX="185.0" layoutY="183.0" mnemonicParsing="false" onAction="#startListarItem" prefHeight="34.0" prefWidth="230.0" text="CONSULTAR ITENS">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btAlterarItem" layoutX="185.0" layoutY="238.0" mnemonicParsing="false" onAction="#startAlterarItem" prefHeight="34.0" prefWidth="230.0" text="ALTERAR ITEM">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label fx:id="lblTitulo" layoutX="182.0" layoutY="47.0" text="CONTROLE DE ITENS">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="btVoltar" layoutX="253.0" layoutY="304.0" mnemonicParsing="false" onAction="#backToMenuEstoque" prefHeight="18.0" prefWidth="94.0" text="VOLTAR" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

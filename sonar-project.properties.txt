@@ -1,0 +1,14 @@
+# must be unique in a given SonarQube instance
+sonar.projectKey=Projeto-de-POO
+# this is the name and version displayed in the SonarQube UI. Was Mandatory prior to SonarQube 6.7.3.
+sonar.projectName=Projeto-de-POO
+sonar.projectVersion=1.0
+
+# Path is relative to the sonar-project.properties file. Replace "\" by "/" on Windows.
+# Since SonarQube 4.2, this porperty is optional if sonar.modules is set.
+# If not set, SonarQube starts looking for source code from the directory containing
+# the sonar-project.properties file.
+sonar.sources=./C:\Users\Andrade\Documents\NetBeansProjects\Projeto-de-POO
+
+# Encoding of the source code. Default is default system encoding
+#sonar.sourceEncoding=UTF-8

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetopoo.view.GerenciadorFuncionariosControllerView">
+   <children>
+      <Label fx:id="lblTitulo" layoutX="216.0" layoutY="30.0" text="MENU FUNCIONARIO">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btCadastrar" layoutX="259.0" layoutY="119.0" mnemonicParsing="false" onAction="#CadastrarFuncionario" text="CADASTRAR" />
+      <Button fx:id="btAlterar" layoutX="259.0" layoutY="157.0" mnemonicParsing="false" onAction="#AlterarFuncionario" prefHeight="25.0" prefWidth="83.0" text="ALTERAR" />
+      <Button fx:id="btRemover" layoutX="260.0" layoutY="233.0" mnemonicParsing="false" onAction="#RemoverFuncionario" prefHeight="26.0" prefWidth="83.0" text="REMOVER" />
+      <Button fx:id="btVoltar" layoutX="271.0" layoutY="289.0" mnemonicParsing="false" onAction="#Voltar" text="VOLTAR" />
+      <Button fx:id="btConsultar" layoutX="259.0" layoutY="194.0" mnemonicParsing="false" onAction="#ConsultarFuncionario" prefHeight="26.0" prefWidth="83.0" text="CONSULTAR" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetopoo.view.forncedorview.AlterarFornecedorControllerView">
+   <children>
+      <Button fx:id="btAlterar" layoutX="498.0" layoutY="336.0" mnemonicParsing="false" onAction="#alterar" text="ALTERAR" />
+      <Button fx:id="btCancelar" layoutX="408.0" layoutY="336.0" mnemonicParsing="false" onAction="#voltarTelaMenu" text="VOLTAR" />
+      <TextField fx:id="tfCNPJ" layoutX="120.0" layoutY="167.0" prefHeight="25.0" prefWidth="261.0" />
+      <Label layoutX="206.0" layoutY="29.0" text="ALTERAR FORNECEDOR">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="169.0" text="Novo CNPJ: ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="212.0" text="Nova razão social:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfRazaoS" layoutX="162.0" layoutY="210.0" prefHeight="25.0" prefWidth="261.0" />
+      <TextField fx:id="tfId" layoutX="99.0" layoutY="129.0" prefHeight="25.0" prefWidth="214.0" />
+      <Label layoutX="34.0" layoutY="131.0" text="ID atual:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
