@@ -2,6 +2,7 @@ package com.projetopoo.view;
 
 import com.projetopoo.controler.*;
 import com.projetopoo.model.*;
+import com.projetopoo.view.itemview.MainItem;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -139,9 +140,11 @@ public class CaixaControllerView implements Initializable{
     }
     
     public void finalizaCompra(){
-        chamaTelaTroco();
+        //chamaTelaTroco();
         compraA.setFechada(true);
         CompraController.inserirCompra(compraA);
+        projetoPOO.trocaTela("principal");
+       
     }
     
     public float calculaTot(List<ProdutoModel> lista){
