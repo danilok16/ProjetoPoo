@@ -39,17 +39,7 @@ public class ItemDAOArq implements Item_dao {
         Item_dao dao = ItemFactory.create();
         list = dao.recuperar();//recupera a lista do arquivo
         list.add(item);
-         //descomentar
-        /*private static ItemDAOArq instance;
-         private CompraDAOArq(){}
-
-         public static CompraDAOArq getInstace(){
-         if(instance ==null){
-         instance = new CompraDAOArq();
-         }
-         return instance;
-         }*/
-
+  
         try {
             FileOutputStream saveFile = new FileOutputStream("CadastroItem.txt");
             ObjectOutputStream stream = new ObjectOutputStream(saveFile);//instancia o objeto de gravação
