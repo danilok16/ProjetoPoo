@@ -11,43 +11,40 @@ public class RemoverFuncionarioControllerView {
 
     @FXML
     private Button btBuscar;
-
     @FXML
     private Button btRemover;
-
     @FXML
     private TextField tfNome;
-
     @FXML
     private TextField tfCPF;
-
     @FXML
     private Button btCancelar;
-
     @FXML
     private Label lbValidacao;
 
     @FXML
+
     void buscarFuncionario() {
         FuncionarioModel f;
         CadastroFuncionarioController cf = new CadastroFuncionarioController();
-        f= cf.ConsultaFuncionario(tfCPF.getText());
-        if(f==null){
+        f = cf.ConsultaFuncionario(tfCPF.getText());
+        if (f == null) {
             lbValidacao.setText("NÃO ENCONTRADO!");
             btRemover.setDisable(true);
-            
-        }
-        else{
+
+        } else {
             tfNome.setText(f.getNome());
             btRemover.setDisable(false);
             lbValidacao.setText("");
         }
 
     }
+
     @FXML
-    void limpar(){
+    void limpar() {
         tfNome.clear();
     }
+
     @FXML
     void remover() {
         CadastroFuncionarioController cf = new CadastroFuncionarioController();

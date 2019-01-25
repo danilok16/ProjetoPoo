@@ -11,7 +11,8 @@ import java.io.Serializable;
  *
  * @author Túlio
  */
-public class RequisicaoModel implements Serializable{
+public class RequisicaoModel implements Serializable {
+
     private String dataDeEmissao;
     private String dataDeEntrega;
     private int status;
@@ -26,20 +27,21 @@ public class RequisicaoModel implements Serializable{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
-    public enum StatusAprovacao{
+    public enum StatusAprovacao {
+
         Z(0), N1(1), N2(2), N3(3), N4(4), APROVADO(5), REPROVADO(6), CANCELADO(7);
-        
+
         public final int c;
-        StatusAprovacao(int status){
+
+        StatusAprovacao(int status) {
             c = status;
         }
-        public int getValor(){
+
+        public int getValor() {
             return c;
         }
     }
-    
-    
+
     public String getDescricao() {
         return descricao;
     }
@@ -87,7 +89,7 @@ public class RequisicaoModel implements Serializable{
     public void setQtdDesejada(int qtdDesejada) {
         this.qtdDesejada = qtdDesejada;
     }
-    
+
     public String getDataDeEmissao() {
         return dataDeEmissao;
     }
@@ -111,5 +113,5 @@ public class RequisicaoModel implements Serializable{
     public void setStatus(int status) {
         this.status = status;
     }
-   
+
 }

@@ -18,25 +18,25 @@ import java.util.logging.Logger;
  * @author Andrade
  */
 public class ItemFactory {
-    public static Item_dao create(){
+
+    public static Item_dao create() {
         String tipo;
-        
+
         Properties prop = null;
         try {
             prop = getProp();
         } catch (IOException ex) {
             Logger.getLogger(ItemFactory.class.getName()).log(Level.SEVERE, null, ex);
         }
-        tipo=prop.getProperty("configItemDAO");
-             
-        if("0".equals(tipo)){
-           return ItemDAOMem.getInstance();
-        }else if ("1".equals(tipo)){            
+        tipo = prop.getProperty("configItemDAO");
+
+        if ("0".equals(tipo)) {
+            return ItemDAOMem.getInstance();
+        } else if ("1".equals(tipo)) {
             return ItemDAOArq.getInstace();
         }
-        
+
         return null;
-        
+
     }
 }
-

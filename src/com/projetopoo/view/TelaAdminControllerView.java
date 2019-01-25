@@ -20,38 +20,37 @@ public class TelaAdminControllerView implements Initializable {
 
     @FXML
     private Button btFuncionario;
-
     @FXML
     private Button btFinanceiro;
-
     @FXML
     private Button btFornecedor;
-
     @FXML
     private Button btVoltarAdmin;
-    
     @FXML
     private Button btEstoque;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-    }  
-    
-    public void chamaTelaInicial(){
+
+    }
+
+    public void chamaTelaInicial() {
         projetoPOO.trocaTela("principal");
     }
-    public void startFluxoDeCaixa(){
-         projetoPOO.trocaTela("fluxoDeCaixa");
+
+    public void startFluxoDeCaixa() {
+        projetoPOO.trocaTela("fluxoDeCaixa");
     }
-     public void startEstoque(){
-         projetoPOO.trocaTela("estoqueMenu");
+
+    public void startEstoque() {
+        projetoPOO.trocaTela("estoqueMenu");
     }
-     public void startFornecedor(){
-         projetoPOO.trocaTela("menuFornecedor");
-     }
-    public void startGerenciadoFuncionario(){
+
+    public void startFornecedor() {
+        projetoPOO.trocaTela("menuFornecedor");
+    }
+
+    public void startGerenciadoFuncionario() {
         projetoPOO.trocaTela("gerenciadorFuncionario");
     }
-    
 }

@@ -5,10 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-
 public class MenuFornecedorControllerView {
-    
-  
+
     @FXML
     private Button btCadastrar;
 
@@ -23,26 +21,28 @@ public class MenuFornecedorControllerView {
 
     @FXML
     private Button btVoltar;
-    
-        @FXML
+
+    @FXML
     private Label lblTitulo;
 
-      
-    public void startCadastrar(){
-       MainFornecedor.trocaTela("cadastrarFornecedor");
+    public void startCadastrar() {
+        MainFornecedor.trocaTela("cadastrarFornecedor");
     }
-    public void startRemover(){
-       MainFornecedor.trocaTela("removerFornecedor");
+
+    public void startRemover() {
+        MainFornecedor.trocaTela("removerFornecedor");
     }
-    public void startAlterar(){
-     MainFornecedor.trocaTela("alterarFornecedor");
+
+    public void startAlterar() {
+        MainFornecedor.trocaTela("alterarFornecedor");
     }
-    public void startConsultar(){
-         MainFornecedor.trocaTela("consultarFornecedor");
+
+    public void startConsultar() {
+        MainFornecedor.trocaTela("consultarFornecedor");
     }
-    
-    public void voltar(){
-    projetoPOO.trocaTela("telaAdmin");
+
+    public void voltar() {
+        projetoPOO.trocaTela("telaAdmin");
     }
-    
+
 }

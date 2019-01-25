@@ -13,14 +13,15 @@ import java.util.ArrayList;
  *
  * @author Andrade
  */
-public class ItemDAOMem implements Item_dao{
-    
-    
+public class ItemDAOMem implements Item_dao {
+
     private static ItemDAOMem instance;
-    private ItemDAOMem(){}
-    
-    public static ItemDAOMem getInstance(){
-        if(instance ==null){
+
+    private ItemDAOMem() {
+    }
+
+    public static ItemDAOMem getInstance() {
+        if (instance == null) {
             instance = new ItemDAOMem();
         }
         return instance;
@@ -41,5 +42,4 @@ public class ItemDAOMem implements Item_dao{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-  
 }

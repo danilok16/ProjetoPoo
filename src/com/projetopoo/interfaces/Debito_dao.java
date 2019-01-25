@@ -5,7 +5,6 @@
  */
 package com.projetopoo.interfaces;
 
-import com.projetopoo.model.CompraModel;
 import com.projetopoo.model.DebitoModel;
 import java.util.ArrayList;
 
@@ -14,7 +13,10 @@ import java.util.ArrayList;
  * @author Andrade
  */
 public interface Debito_dao {
+
     void salvar(DebitoModel compra);
+
     ArrayList<DebitoModel> recuperar();
+
     void alterar(ArrayList<DebitoModel> listp);
 }

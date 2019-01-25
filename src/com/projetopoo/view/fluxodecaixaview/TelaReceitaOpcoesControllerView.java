@@ -28,18 +28,17 @@ public class TelaReceitaOpcoesControllerView implements Initializable {
     @FXML
     private Button btAlterarRegistroVendas;
 
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
-     public void startListarVendas(){
+    }
+
+    public void startListarVendas() {
         MainFluxoDeCaixa.trocaTela("ListarReceitaLsView");
     }
-     
-    public void chamaFluxoDeCaixa(){
+
+    public void chamaFluxoDeCaixa() {
         projetoPOO.trocaTela("fluxoDeCaixa");
     }
-    
+
 }

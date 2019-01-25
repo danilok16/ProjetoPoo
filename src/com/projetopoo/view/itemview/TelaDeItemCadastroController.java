@@ -28,14 +28,14 @@ import javafx.scene.control.TextField;
  * @author dkaus
  */
 public class TelaDeItemCadastroController implements Initializable {
-    
-        @FXML
+
+    @FXML
     private Label lblTitulo;
-    
-      @FXML
+
+    @FXML
     private TextField tfIdItem;
 
-       @FXML
+    @FXML
     private TextField tfDescricao;
 
     @FXML
@@ -43,14 +43,12 @@ public class TelaDeItemCadastroController implements Initializable {
 
     @FXML
     private TextField tfPreco;
-    
-      @FXML
+
+    @FXML
     private TextField tfIdFornecedor;
-   
 
     @FXML
     private Button btSalvar;
-
 
     @FXML
     private Button btVoltar;
@@ -60,58 +58,53 @@ public class TelaDeItemCadastroController implements Initializable {
 
     @FXML
     private TextField tfPosicao;
-    
-     ItemModel item;
+
+    ItemModel item;
     ArrayList<FornecedorModel> fornecedorList = new ArrayList<>();
     ItemController itemController = new ItemController();
-    
-   
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-  
-    
-    }    
-   
-    public void salvarItem(){
-       boolean flag = false;
-       
+
+    }
+
+    public void salvarItem() {
+        boolean flag = false;
+
         ProdutoModel i = itemController.consultarItem((tfIdItem.getText()));
-         if(i != null){
-                Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
-                 dialogoInfo.setTitle("AVISO");
-                 dialogoInfo.setHeaderText("ITEM JÁ CADASTRADO");
-                dialogoInfo.showAndWait();
-                tfIdItem.clear();
-                flag = true;
-         }
-         
-         FornecedorModel fornecedor = ConsultaFornecedor(tfIdFornecedor.getText());
-         if(fornecedor == null){
-         Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
-             dialogoInfo.setTitle("AVISO");
-             dialogoInfo.setHeaderText("FORCEDOR NÃO CADASTRADO");
-              dialogoInfo.showAndWait();
-              tfIdFornecedor.clear();
-               flag = true;
+        if (i != null) {
+            Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
+            dialogoInfo.setTitle("AVISO");
+            dialogoInfo.setHeaderText("ITEM JÁ CADASTRADO");
+            dialogoInfo.showAndWait();
+            tfIdItem.clear();
+            flag = true;
         }
-        else {
+
+        FornecedorModel fornecedor = ConsultaFornecedor(tfIdFornecedor.getText());
+        if (fornecedor == null) {
+            Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
+            dialogoInfo.setTitle("AVISO");
+            dialogoInfo.setHeaderText("FORCEDOR NÃO CADASTRADO");
+            dialogoInfo.showAndWait();
+            tfIdFornecedor.clear();
+            flag = true;
+        } else {
             this.fornecedorList.add(fornecedor);
-         }
-        
-          if(tfDescricao.getText() != null && tfPreco.getText() != null && dpData.getValue() != null && tfQuantidade.getText() != null && tfPosicao.getText() !=null && flag == false){
-            this.item = new ItemModel(tfIdItem.getText(),Integer.parseInt(tfQuantidade.getText()),Float.parseFloat(tfPreco.getText()), tfDescricao.getText(),dpData.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")),tfPosicao.getText(), fornecedorList);
+        }
+
+        if (tfDescricao.getText() != null && tfPreco.getText() != null && dpData.getValue() != null && tfQuantidade.getText() != null && tfPosicao.getText() != null && flag == false) {
+            this.item = new ItemModel(tfIdItem.getText(), Integer.parseInt(tfQuantidade.getText()), Float.parseFloat(tfPreco.getText()), tfDescricao.getText(), dpData.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")), tfPosicao.getText(), fornecedorList);
             itemController.salvar(item);
             Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
             dialogoInfo.setHeaderText("SALVO COM SUCESSO");
             dialogoInfo.showAndWait();
             MainItem.trocaTela("itemMenu");
-          }
+        }
     }
-   
-    
-      public void backToMenuItem(){
+
+    public void backToMenuItem() {
         MainItem.trocaTela("itemMenu");
-         
+
     }
 }

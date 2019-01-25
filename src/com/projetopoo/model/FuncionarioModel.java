@@ -2,21 +2,20 @@ package com.projetopoo.model;
 
 import java.io.Serializable;
 
-
 public class FuncionarioModel extends PessoaModel implements Serializable {
+
     private String funcao;
     private float salario;
     private String senha;
-     private int nivelAcesso;
+    private int nivelAcesso;
 
-    
     public FuncionarioModel(String funcao, String senha, float salario, String nome, String tel, String cpf) {
         super(nome, tel, cpf);
-        
-        this.senha= senha;
+
+        this.senha = senha;
         this.funcao = funcao;
         this.salario = salario;
-        
+
     }
 
     public String getFuncao() {
@@ -34,8 +33,6 @@ public class FuncionarioModel extends PessoaModel implements Serializable {
     public void setSalario(float salario) {
         this.salario = salario;
     }
-
-    
 
     @Override
     public String getNome() {
@@ -76,7 +73,7 @@ public class FuncionarioModel extends PessoaModel implements Serializable {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-    
+
     public int getNivelAcesso() {
         return nivelAcesso;
     }
@@ -84,6 +81,5 @@ public class FuncionarioModel extends PessoaModel implements Serializable {
     public void setNivelAcesso(int nivelAcesso) {
         this.nivelAcesso = nivelAcesso;
     }
-   
-    
+
 }

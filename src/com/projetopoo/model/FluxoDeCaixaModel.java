@@ -12,14 +12,14 @@ import java.util.ArrayList;
  * @author dkaus
  */
 public class FluxoDeCaixaModel {
-    
-   private String data;
+
+    private String data;
     private float total;
     private String tipo;
     private String descricao;
     private ArrayList<DebitoModel> despesas = new ArrayList();
-    private ArrayList<CompraModel> receitas =new ArrayList();
- 
+    private ArrayList<CompraModel> receitas = new ArrayList();
+
     public String getTipo() {
         return tipo;
     }
@@ -35,7 +35,6 @@ public class FluxoDeCaixaModel {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-
 
     public String getData() {
         return data;
@@ -53,27 +52,6 @@ public class FluxoDeCaixaModel {
         this.total = total;
     }
 
-
-   
-
-   /* public float getTotalDespesa() {
-        return totalDespesa;
-    }
-
-    public void setTotalDespesa(float totalDespesa) {
-        this.totalDespesa = totalDespesa;
-    }
-
-    public float getTotalReceita() {
-        return totalReceita;
-    }
-
-    public void setTotalReceita(float totalRecita) {
-        this.totalReceita = totalRecita;
-    }*/
-
-    
-
     public ArrayList<DebitoModel> getDespesas() {
         return despesas;
     }
@@ -90,9 +68,4 @@ public class FluxoDeCaixaModel {
         this.receitas = receitas;
     }
 
-
-
-    
-    
-    
 }

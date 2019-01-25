@@ -16,98 +16,89 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class TelaTrocoControllerView implements Initializable{
+public class TelaTrocoControllerView implements Initializable {
 
     @FXML
     private Button btConcluir;
-
     @FXML
     private Button btCancelar;
-
     @FXML
     private ComboBox<String> cbPagamento;
-
     @FXML
     private Label lbPagamento;
-
     @FXML
     private TextField tfPagamento;
-    
+
     private ObservableList<String> obervableListPagamento;
     private final ArrayList<String> formasDePagamento = new ArrayList();
     private String fPagamento;
     CompraModel compra = CompraController.getUltimaCompra();
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         carregarComboBoxPagamento();
     }
-    
+
     @FXML
-    void carregarComboBoxPagamento(){
+    void carregarComboBoxPagamento() {
         formasDePagamento.add("Dinheiro");
         formasDePagamento.add("Cartão de Crédito");
         formasDePagamento.add("Cartão de Débito");
         obervableListPagamento = FXCollections.observableArrayList(formasDePagamento);
         cbPagamento.setItems(obervableListPagamento);
     }
-    
+
     @FXML
-    public void pegaFormaDePagamento(){
-        if(cbPagamento.getSelectionModel().getSelectedItem() != null){
+    public void pegaFormaDePagamento() {
+        if (cbPagamento.getSelectionModel().getSelectedItem() != null) {
             fPagamento = cbPagamento.getSelectionModel().getSelectedItem();
         }
         preencheLabelPagamento();
     }
-    
+
     @FXML
-    public void preencheLabelPagamento(){
-        if("Dinheiro".equals(fPagamento)){
+    public void preencheLabelPagamento() {
+        if ("Dinheiro".equals(fPagamento)) {
             lbPagamento.setText("Valor pago: ");
-        }
-        else if("Cartão de Débito".equals(fPagamento)){
+        } else if ("Cartão de Débito".equals(fPagamento)) {
             lbPagamento.setText("Informe a senha: ");
-        }
-        else if("Cartão de Débito".equals(fPagamento)){
+        } else if ("Cartão de Débito".equals(fPagamento)) {
             lbPagamento.setText("Informe a senha: ");
         }
     }
-    
+
     @FXML
-    public void processaPagamento(){
+    public void processaPagamento() {
         float total = compra.getValorTot(), valorPago, troco, qtdParcelas, valorParcelas;
         String entradaTF;
         Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
-        
-        if("Dinheiro".equals(fPagamento)){
+
+        if ("Dinheiro".equals(fPagamento)) {
             entradaTF = tfPagamento.getText();
-            if(!"".equals(entradaTF)){
+            if (!"".equals(entradaTF)) {
                 valorPago = Float.parseFloat(entradaTF);
-                if(valorPago < total){
+                if (valorPago < total) {
                     dialogoInfo.setTitle("AVISO");
                     dialogoInfo.setHeaderText("Valor inferior ao total!");
                     dialogoInfo.showAndWait();
-                }
-                else{
-                    if(valorPago > total){
-                    troco = valorPago - total;
-                    dialogoInfo.setTitle("AVISO");
-                    dialogoInfo.setHeaderText("Conta paga!");
-                    dialogoInfo.setHeaderText("Troco: " + troco);
-                    dialogoInfo.showAndWait();
-                    }
-                    else{
-                    dialogoInfo.setTitle("AVISO");
-                    dialogoInfo.setHeaderText("Conta paga!");
-                    dialogoInfo.showAndWait();
+                } else {
+                    if (valorPago > total) {
+                        troco = valorPago - total;
+                        dialogoInfo.setTitle("AVISO");
+                        dialogoInfo.setHeaderText("Conta paga!");
+                        dialogoInfo.setHeaderText("Troco: " + troco);
+                        dialogoInfo.showAndWait();
+                    } else {
+                        dialogoInfo.setTitle("AVISO");
+                        dialogoInfo.setHeaderText("Conta paga!");
+                        dialogoInfo.showAndWait();
                     }
                     CompraController.pagarCompra(compra, new PagamentoDinheiro());
                 }
             }
-        }
-        else if("Cartao de Credito".equals(fPagamento)){
+        } else if ("Cartao de Credito".equals(fPagamento)) {
             entradaTF = tfPagamento.getText();
-            if(!"".equals(entradaTF)){
+            if (!"".equals(entradaTF)) {
                 qtdParcelas = Float.parseFloat(entradaTF);
                 valorParcelas = total / qtdParcelas;
                 dialogoInfo.setTitle("AVISO");
@@ -115,13 +106,11 @@ public class TelaTrocoControllerView implements Initializable{
                 dialogoInfo.setHeaderText("Parcelas: " + qtdParcelas + " de R$" + valorParcelas);
                 dialogoInfo.showAndWait();
                 CompraController.pagarCompra(compra, new PagamentoCartaoCredito());
-                
+
             }
-        }
-        
-        else if("Cartao de Debito".equals(fPagamento)){
+        } else if ("Cartao de Debito".equals(fPagamento)) {
             entradaTF = tfPagamento.getText();
-            if(!"".equals(entradaTF)){
+            if (!"".equals(entradaTF)) {
                 dialogoInfo.setTitle("AVISO");
                 dialogoInfo.setHeaderText("Conta paga!");
                 dialogoInfo.showAndWait();
@@ -129,9 +118,9 @@ public class TelaTrocoControllerView implements Initializable{
             }
         }
     }
-    
+
     @FXML
-    void btCancelar(){
+    void btCancelar() {
         lbPagamento.setText("");
         tfPagamento.setText("");
         projetoPOO.trocaTela("caixa");

@@ -22,10 +22,11 @@ import javafx.stage.Stage;
  * @author dkaus
  */
 public class TelaFluxoDeCaixaControllerView implements Initializable {
-      private static Stage stage;
-        private static Scene debitoScene;
-    
-        @FXML
+
+    private static Stage stage;
+    private static Scene debitoScene;
+
+    @FXML
     private Button btDespesas;
 
     @FXML
@@ -36,15 +37,14 @@ public class TelaFluxoDeCaixaControllerView implements Initializable {
 
     @FXML
     private Button btReceitas;
-    
+
     @FXML
     private Button btVoltarFluxoCaixa;
-    
-   
-   @FXML
+
+    @FXML
     private ImageView imLogoFluxoCaixa;
-   @FXML
-   private Button btVoltarReceita;
+    @FXML
+    private Button btVoltarReceita;
 
     /**
      * Initializes the controller class.
@@ -52,24 +52,24 @@ public class TelaFluxoDeCaixaControllerView implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Image imagem = new Image("/com/projetopoo/view/fluxodecaixaview/icons/fluxo_caixa.png");
-       imLogoFluxoCaixa.setImage(imagem);
+        imLogoFluxoCaixa.setImage(imagem);
         // TODO
-    }    
-    
-    public void startDespesasMenu(){
-         MainFluxoDeCaixa.trocaTela("DespesasMenuView");
     }
-    public void startReceitasMenu(){
-         MainFluxoDeCaixa.trocaTela("receitasMenuView");
+
+    public void startDespesasMenu() {
+        MainFluxoDeCaixa.trocaTela("DespesasMenuView");
     }
-    
-    public void chamaAdmin(){
+
+    public void startReceitasMenu() {
+        MainFluxoDeCaixa.trocaTela("receitasMenuView");
+    }
+
+    public void chamaAdmin() {
         projetoPOO.trocaTela("telaAdmin");
     }
-    
-     public void startFaturamento(){
-         MainFluxoDeCaixa.trocaTela("faturamentoView");
+
+    public void startFaturamento() {
+        MainFluxoDeCaixa.trocaTela("faturamentoView");
     }
-    
-    
+
 }

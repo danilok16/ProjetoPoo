@@ -5,7 +5,6 @@
  */
 package com.projetopoo.interfaces;
 
-import com.projetopoo.model.DebitoModel;
 import com.projetopoo.model.FornecedorModel;
 import java.util.ArrayList;
 
@@ -14,7 +13,10 @@ import java.util.ArrayList;
  * @author Andrade
  */
 public interface Fornecedor_dao {
+
     void salvar(FornecedorModel compra);
+
     ArrayList<FornecedorModel> recuperar();
+
     void alterar(ArrayList<FornecedorModel> listp);
 }

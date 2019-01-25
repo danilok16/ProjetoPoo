@@ -22,39 +22,33 @@ public class EstoqueMenuControllerView implements Initializable {
 
     @FXML
     private Button btCriarRequisicao;
-      @FXML
+    @FXML
     private Button btAlterarRequisicao;
-
     @FXML
     private Button btControleItens;
-    
-    
     @FXML
     private Button btVoltar;
-
     @FXML
     private Label lblTitulo;
+    private static Stage stage;
     
-     private static Stage stage;
     @Override
-    
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
     
     public void startItemMenu() throws Exception{
        projetoPOO.trocaTela("ItemMenu");
-
     }
-        public void backToAdiminMenu(){
-        projetoPOO.trocaTela("telaAdmin");
-        
-        
-}
-         public void startMenuRequisicao() throws Exception{
+    
+    public void backToAdiminMenu(){
+       projetoPOO.trocaTela("telaAdmin");
+    }
+    
+    public void startMenuRequisicao() throws Exception{
        projetoPOO.trocaTela("requisicao");
-         }
- 
     }
+ 
+}
      
     

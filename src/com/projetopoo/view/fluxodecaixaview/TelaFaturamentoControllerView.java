@@ -31,87 +31,71 @@ import javafx.scene.control.cell.PropertyValueFactory;
  * @author dkaus
  */
 public class TelaFaturamentoControllerView implements Initializable {
-    
-   
 
     @FXML
     private Button btVoltarFluxoCaixa;
-
     @FXML
     private TableView<FluxoDeCaixaModel> tableViewFluxoDeCaixa;
-
     @FXML
     private TableColumn<FluxoDeCaixaModel, String> tableColumnData;
-
     @FXML
     private TableColumn<FluxoDeCaixaModel, String> tableColumnDescricao;
-
     @FXML
     private TableColumn<FluxoDeCaixaModel, String> tableColumnTipo;
-
     @FXML
-    private TableColumn<FluxoDeCaixaModel, String>tableColumnValor;
-    
-        @FXML
+    private TableColumn<FluxoDeCaixaModel, String> tableColumnValor;
+    @FXML
     private DatePicker dpData;
-        
-            @FXML
+    @FXML
     private Button btnListar;
-            
- 
-    
-    
+
     private ArrayList<FluxoDeCaixaModel> list = new ArrayList<>();
     private ObservableList<FluxoDeCaixaModel> ObservableListFluxoDeCaixa;
     FluxoDeCaixaController fluxoController = new FluxoDeCaixaController();
-    
-  
-    
+
     DebitoController despesa = new DebitoController();
     CompraController receita = new CompraController();
 
-  /* @FXML
-    private PieChart pcFaturamento;*/
+    /* @FXML
+     private PieChart pcFaturamento;*/
     @Override
-    
+
     public void initialize(URL url, ResourceBundle rb) {
     }
-       
-       public void exibirFluxoDeCaixa(){
-           
-  if(dpData.getValue() != null){
-      FluxoDeCaixaModel fluxoDespesa = fluxoController.criarFluxoDeCaixa(dpData.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")), "DESPESAS VARIÁVEIS", "SAIDA");
-      FluxoDeCaixaModel fluxoReceita = fluxoController.criarFluxoDeCaixa(dpData.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")), "VENDAS", "ENTRADA");
-       FluxoDeCaixaModel fluxoLucro = fluxoController.criarFluxoDeCaixa(dpData.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")), "LUCRO", "ENTRADA");
-        list.add(fluxoDespesa);
-           list.add(fluxoReceita);
-           list.add(fluxoLucro);
-           carregarTableViewFluxoDeCaixa(list);
-           list.clear();
-         }
-    }    
-    
-       public static final LocalDate LOCAL_DATE (String dateString){
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-    LocalDate localDate = LocalDate.parse(dateString, formatter);
-    return localDate;
-}
-    
-       public void carregarTableViewFluxoDeCaixa(ArrayList<FluxoDeCaixaModel> listp){
-        
-       tableViewFluxoDeCaixa.refresh();
+
+    public void exibirFluxoDeCaixa() {
+        if (dpData.getValue() != null) {
+            FluxoDeCaixaModel fluxoDespesa = fluxoController.criarFluxoDeCaixa(dpData.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")), "DESPESAS VARIÁVEIS", "SAIDA");
+            FluxoDeCaixaModel fluxoReceita = fluxoController.criarFluxoDeCaixa(dpData.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")), "VENDAS", "ENTRADA");
+            FluxoDeCaixaModel fluxoLucro = fluxoController.criarFluxoDeCaixa(dpData.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")), "LUCRO", "ENTRADA");
+            list.add(fluxoDespesa);
+            list.add(fluxoReceita);
+            list.add(fluxoLucro);
+            carregarTableViewFluxoDeCaixa(list);
+            list.clear();
+        }
+    }
+
+    public static final LocalDate LOCAL_DATE(String dateString) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate localDate = LocalDate.parse(dateString, formatter);
+        return localDate;
+    }
+
+    public void carregarTableViewFluxoDeCaixa(ArrayList<FluxoDeCaixaModel> listp) {
+
+        tableViewFluxoDeCaixa.refresh();
         tableColumnDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
         tableColumnData.setCellValueFactory(new PropertyValueFactory<>("data"));
         tableColumnTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
         tableColumnValor.setCellValueFactory(new PropertyValueFactory<>("total"));
-       ObservableListFluxoDeCaixa = FXCollections.observableArrayList(listp);
-       tableViewFluxoDeCaixa.setItems(  ObservableListFluxoDeCaixa );
-       
+        ObservableListFluxoDeCaixa = FXCollections.observableArrayList(listp);
+        tableViewFluxoDeCaixa.setItems(ObservableListFluxoDeCaixa);
+
     }
-     
-      public void chamaFluxoDeCaixa(){
+
+    public void chamaFluxoDeCaixa() {
         projetoPOO.trocaTela("fluxoDeCaixa");
     }
-   
 
 }

@@ -1,4 +1,3 @@
-
 package com.projetopoo.view;
 
 import javafx.fxml.FXML;
@@ -10,17 +9,14 @@ public class LoginCaixaControllerView {
 
     @FXML
     private TextField tfIdFuncionario;
-
     @FXML
     private PasswordField tfSenha;
-
     @FXML
     private TextField tfIdCaixa;
-    
     @FXML
     private Button btEntrar;
-    
-    public void ChamaCaixa(){
+
+    public void ChamaCaixa() {
         projetoPOO.trocaTela("caixa");
     }
 }

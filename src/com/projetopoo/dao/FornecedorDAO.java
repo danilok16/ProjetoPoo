@@ -23,78 +23,79 @@ import java.util.logging.Logger;
  *
  * @author dkaus
  */
-public class FornecedorDAO implements Fornecedor_dao{
-    
+public class FornecedorDAO implements Fornecedor_dao {
+
     ArrayList<FornecedorModel> list = new ArrayList();
-    
+
     private static FornecedorDAO instance;
-    private FornecedorDAO() {}
-    
-    public static FornecedorDAO getInstance(){
-        if (instance == null){
+
+    private FornecedorDAO() {
+    }
+
+    public static FornecedorDAO getInstance() {
+        if (instance == null) {
             instance = new FornecedorDAO();
         }
         return instance;
     }
-    
+
     @Override
-    public void salvar(FornecedorModel fornecedor){//Inseri um novo funcionario na lista
+    public void salvar(FornecedorModel fornecedor) {//Inseri um novo funcionario na lista
         Fornecedor_dao dao = FornecedorFactory.create();
         list = dao.recuperar();//recupera a lista do arquivo
         list.add(fornecedor);
-        try{
+        try {
             FileOutputStream saveFile = new FileOutputStream("CadastroFornecedor.txt");
             ObjectOutputStream stream = new ObjectOutputStream(saveFile);//instancia o objeto de gravação
             stream.writeObject(list);//salva a lista no arquivo
             stream.close();//fecha objeto de gravação     
-        }catch(FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }catch (IOException ex) {
+        } catch (IOException ex) {
             Logger.getLogger(FornecedorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @Override
-    public ArrayList<FornecedorModel> recuperar(){//Recupera lista
-        if(new File("CadastroFornecedor.txt").canRead() == true){ // se o arrquivo existir
-            try{
+    public ArrayList<FornecedorModel> recuperar() {//Recupera lista
+        if (new File("CadastroFornecedor.txt").canRead() == true) { // se o arrquivo existir
+            try {
                 FileInputStream restFile = new FileInputStream("CadastroFornecedor.txt");
-                ObjectInputStream stream = new ObjectInputStream(restFile);            
+                ObjectInputStream stream = new ObjectInputStream(restFile);
                 ArrayList<FornecedorModel> novo = (ArrayList) stream.readObject();
                 stream.close();
                 return novo;
-            }catch(FileNotFoundException e){
-                e.printStackTrace(); 
-            }catch (IOException ex) {
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException ex) {
                 Logger.getLogger(FornecedorDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }catch (ClassNotFoundException ex) {
+            } catch (ClassNotFoundException ex) {
                 Logger.getLogger(FornecedorDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
-        else{// se o arquivo não existir
-            try{
-            FileOutputStream saveFile = new FileOutputStream("CadastroFornecedor.txt");
-            ObjectOutputStream stream = new ObjectOutputStream(saveFile);//instancia o objeto de gravação
-            stream.close();//fecha objeto de gravação
-            }catch (FileNotFoundException ex) {
+        } else {// se o arquivo não existir
+            try {
+                FileOutputStream saveFile = new FileOutputStream("CadastroFornecedor.txt");
+                ObjectOutputStream stream = new ObjectOutputStream(saveFile);//instancia o objeto de gravação
+                stream.close();//fecha objeto de gravação
+            } catch (FileNotFoundException ex) {
                 Logger.getLogger(FornecedorDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }catch (IOException ex) {
+            } catch (IOException ex) {
                 Logger.getLogger(FornecedorDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         return list;
     }
-    
+
     @Override
-    public void alterar(ArrayList<FornecedorModel> listp ){
-        try{
+    public void alterar(ArrayList<FornecedorModel> listp) {
+        try {
             FileOutputStream saveFile = new FileOutputStream("CadastroFornecedor.txt");
             ObjectOutputStream stream = new ObjectOutputStream(saveFile);//instancia o objeto de gravação
             stream.writeObject(listp);//salva a lista no arquivo
             stream.close();//fecha objeto de gravação
-        }catch(FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }catch (IOException ex) {
+        } catch (IOException ex) {
             Logger.getLogger(FornecedorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

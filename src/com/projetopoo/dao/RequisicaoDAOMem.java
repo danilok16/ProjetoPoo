@@ -14,15 +14,19 @@ import java.util.ArrayList;
  * @author Téo
  */
 public class RequisicaoDAOMem implements Requisicao_dao {
+
     private static RequisicaoDAOMem instance;
-    private RequisicaoDAOMem() {}
-    
-    public static RequisicaoDAOMem getInstance(){
-        if (instance == null){
+
+    private RequisicaoDAOMem() {
+    }
+
+    public static RequisicaoDAOMem getInstance() {
+        if (instance == null) {
             instance = new RequisicaoDAOMem();
         }
         return instance;
     }
+
     @Override
     public void salvar(RequisicaoModel compra) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -37,5 +41,5 @@ public class RequisicaoDAOMem implements Requisicao_dao {
     public void alterar(ArrayList<RequisicaoModel> listp) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

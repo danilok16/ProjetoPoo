@@ -30,22 +30,21 @@ import javafx.scene.control.cell.PropertyValueFactory;
  */
 public class TelaDeItemListarControllerView implements Initializable {
 
-     @FXML
+    @FXML
     private Button btListar;
 
     @FXML
     private TextField tfListar;
-    
+
     @FXML
     private Button btVoltar;
-    
-@FXML
-   private TableView<ProdutoModel> tableViewItens;
+
+    @FXML
+    private TableView<ProdutoModel> tableViewItens;
 
     @FXML
     private TableColumn<ProdutoModel, String> tableColumnDescricao;
-    
-    
+
     @FXML
     private TableColumn<ProdutoModel, String> tableColumnId;
 
@@ -57,14 +56,14 @@ public class TelaDeItemListarControllerView implements Initializable {
 
     @FXML
     private TableColumn<ProdutoModel, String> tableColumnValidade;
-    
-     @FXML
+
+    @FXML
     private TableColumn<ProdutoModel, String> tableColumnIdFornecedor;
 
     @FXML
     private TableColumn<ProdutoModel, String> tableColumnPosicao;
-    
-  @FXML
+
+    @FXML
     private RadioButton rdId;
 
     @FXML
@@ -75,57 +74,57 @@ public class TelaDeItemListarControllerView implements Initializable {
 
     @FXML
     private RadioButton rdFonecedor;
-    
-     @FXML
-     private ToggleGroup categoria;
-   
 
-    
+    @FXML
+    private ToggleGroup categoria;
+
     ArrayList<ProdutoModel> list = new ArrayList<>();
     private ObservableList<ProdutoModel> ObservableListItens;
     ItemController itemController = new ItemController();
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-         tfListar.setEditable(false);
-          tableViewItens.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue)  -> selecionarItemTableViewItens(newValue));
-    }    
-    
-    public void alterarTextField(){
-         RadioButton radio  = (RadioButton) categoria.getSelectedToggle();
-         tfListar.setPromptText(radio.getText());
-          if(radio.isDisabled() == false){
+        tfListar.setEditable(false);
+        tableViewItens.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> selecionarItemTableViewItens(newValue));
+    }
+
+    public void alterarTextField() {
+        RadioButton radio = (RadioButton) categoria.getSelectedToggle();
+        tfListar.setPromptText(radio.getText());
+        if (radio.isDisabled() == false) {
             tfListar.setEditable(true);
         }
     }
-    public void listar(){
-        RadioButton radio  = (RadioButton) categoria.getSelectedToggle();
-        if(tfListar.getText() != null){
-        list = itemController.recuperarListaEspecifica(tfListar.getText(), radio.getText());
-      carregarTableViewItens(list);
-      list.clear();
+
+    public void listar() {
+        RadioButton radio = (RadioButton) categoria.getSelectedToggle();
+        if (tfListar.getText() != null) {
+            list = itemController.recuperarListaEspecifica(tfListar.getText(), radio.getText());
+            carregarTableViewItens(list);
+            list.clear();
         }
     }
-    
-      public void carregarTableViewItens(ArrayList<ProdutoModel> listp){
-          
+
+    public void carregarTableViewItens(ArrayList<ProdutoModel> listp) {
+
         tableColumnDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
         tableColumnValidade.setCellValueFactory(new PropertyValueFactory<>("validade"));
-         tableColumnId.setCellValueFactory(new PropertyValueFactory<>("idItem"));
+        tableColumnId.setCellValueFactory(new PropertyValueFactory<>("idItem"));
         tableColumnPreco.setCellValueFactory(new PropertyValueFactory<>("preco"));
         tableColumnQuantidade.setCellValueFactory(new PropertyValueFactory<>("qtdEstoque"));
         tableColumnPosicao.setCellValueFactory(new PropertyValueFactory<>("posicaoEstoque"));
-       ObservableListItens = FXCollections.observableArrayList(listp);
+        ObservableListItens = FXCollections.observableArrayList(listp);
         tableViewItens.setItems(ObservableListItens);
     }
-   public void selecionarItemTableViewItens(ProdutoModel item){
+
+    public void selecionarItemTableViewItens(ProdutoModel item) {
     }
-   
-     public void backToMenuItem(){
-    MainItem.trocaTela("itemMenu");
-         
+
+    public void backToMenuItem() {
+        MainItem.trocaTela("itemMenu");
+
     }
-   
+
 }

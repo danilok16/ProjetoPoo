@@ -14,11 +14,14 @@ import java.util.ArrayList;
  * @author Téo
  */
 public class FuncionarioDAOMem implements Funcionario_dao {
+
     private static FuncionarioDAOMem instance;
-    private FuncionarioDAOMem() {}
-    
-    public static FuncionarioDAOMem getInstance(){
-        if (instance == null){
+
+    private FuncionarioDAOMem() {
+    }
+
+    public static FuncionarioDAOMem getInstance() {
+        if (instance == null) {
             instance = new FuncionarioDAOMem();
         }
         return instance;
@@ -38,5 +41,5 @@ public class FuncionarioDAOMem implements Funcionario_dao {
     public void alterar(ArrayList<FuncionarioModel> listp) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

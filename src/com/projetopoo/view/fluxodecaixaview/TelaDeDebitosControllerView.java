@@ -29,97 +29,83 @@ import javafx.scene.control.cell.PropertyValueFactory;
  * @author dkaus
  */
 public class TelaDeDebitosControllerView implements Initializable {
-    
+
     @FXML
     private TextField tfDescricao;
-
     @FXML
     private DatePicker dpData;
-
     @FXML
     private TextField tfValor;
-    
-     @FXML
+    @FXML
     private Button btSalvar;
-
     @FXML
     private Button btInserir;
-
     @FXML
     private Button btRemover;
-    
-      @FXML
+    @FXML
     private Button btVoltar;
-    
     @FXML
     private TableView<DebitoModel> tableViewDebitos;
-
     @FXML
     private TableColumn<DebitoModel, String> tableColumnData;
-
     @FXML
     private TableColumn<DebitoModel, String> tableColumnDescricao;
-
     @FXML
     private TableColumn<DebitoModel, String> tableColumnValor;
-    
-     ArrayList<DebitoModel> list = new ArrayList<>();
+
+    ArrayList<DebitoModel> list = new ArrayList<>();
     private ObservableList<DebitoModel> ObservableListDebitos;
     DebitoController debitoController = new DebitoController();
-    
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
         carregarTableViewDebitos(this.list);
-        
         tableViewDebitos.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue)  -> selecionarItemTableViewDebitos(newValue));
-        
+                (observable, oldValue, newValue) -> selecionarItemTableViewDebitos(newValue));
     }
-    
-    public void inserirTableViewDebitos(){
-          if(tfDescricao.getText() != null && tfValor.getText() != null && dpData.getValue() != null){
-              
-        DebitoModel debito = new DebitoModel(tfDescricao.getText(),Float.parseFloat(tfValor.getText()),dpData.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
-        list.add(debito);
-         carregarTableViewDebitos(this.list);
-          }
-    } 
-    
-    public void carregarTableViewDebitos(ArrayList<DebitoModel> listp){
-        
+
+    public void inserirTableViewDebitos() {
+        if (tfDescricao.getText() != null && tfValor.getText() != null && dpData.getValue() != null) {
+            DebitoModel debito = new DebitoModel(tfDescricao.getText(), Float.parseFloat(tfValor.getText()), dpData.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+            list.add(debito);
+            carregarTableViewDebitos(this.list);
+        }
+    }
+
+    public void carregarTableViewDebitos(ArrayList<DebitoModel> listp) {
+
         tableColumnDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
         tableColumnData.setCellValueFactory(new PropertyValueFactory<>("data"));
         tableColumnValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
         ObservableListDebitos = FXCollections.observableArrayList(listp);
         tableViewDebitos.setItems(ObservableListDebitos);
-       
+
     }
-    
-    public void removerItemTableViewDebitos(){
-            DebitoModel debito = tableViewDebitos.getSelectionModel().getSelectedItem();
-            tableViewDebitos.getItems().remove(debito);
-            this.list.remove(debito);
+
+    public void removerItemTableViewDebitos() {
+        DebitoModel debito = tableViewDebitos.getSelectionModel().getSelectedItem();
+        tableViewDebitos.getItems().remove(debito);
+        this.list.remove(debito);
     }
-    
-    public void salvarTableViewDebitos(){
-        if(this.list.isEmpty() == false){
+
+    public void salvarTableViewDebitos() {
+        if (this.list.isEmpty() == false) {
             debitoController.salvarArrayList(list);
             Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
             dialogoInfo.setHeaderText("SALVO COM SUCESSO");
             dialogoInfo.showAndWait();
-        this.list.clear();
-        this.ObservableListDebitos.clear();
-        tfDescricao.clear();
-        tfValor.clear();
+            this.list.clear();
+            this.ObservableListDebitos.clear();
+            tfDescricao.clear();
+            tfValor.clear();
         }
     }
-    public void selecionarItemTableViewDebitos(DebitoModel debitop){
+
+    public void selecionarItemTableViewDebitos(DebitoModel debitop) {
 
     }
-    
-    public void backToMenuDespesa(){
-         MainFluxoDeCaixa.trocaTela("DespesasMenuView");
+
+    public void backToMenuDespesa() {
+        MainFluxoDeCaixa.trocaTela("DespesasMenuView");
     }
 }

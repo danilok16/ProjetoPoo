@@ -13,18 +13,20 @@ import java.util.ArrayList;
  *
  * @author Andrade
  */
-public class CompraDAOMem implements Compra_dao{
+public class CompraDAOMem implements Compra_dao {
 
     private static CompraDAOMem instance;
-    private CompraDAOMem(){}
-    
-    public static CompraDAOMem getInstance(){
-        if(instance ==null){
+
+    private CompraDAOMem() {
+    }
+
+    public static CompraDAOMem getInstance() {
+        if (instance == null) {
             instance = new CompraDAOMem();
         }
         return instance;
     }
-    
+
     @Override
     public void salvar(CompraModel compra) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -39,5 +41,5 @@ public class CompraDAOMem implements Compra_dao{
     public void alterar(ArrayList<CompraModel> listp) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

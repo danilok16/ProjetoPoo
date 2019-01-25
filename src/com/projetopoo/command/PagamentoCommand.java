@@ -12,5 +12,6 @@ import com.projetopoo.model.CompraModel;
  * @author Túlio
  */
 public interface PagamentoCommand {
-    boolean processarCompra (CompraModel compra);
+
+    boolean processarCompra(CompraModel compra);
 }

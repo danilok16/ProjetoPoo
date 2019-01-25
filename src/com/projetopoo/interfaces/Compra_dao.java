@@ -8,9 +8,11 @@ package com.projetopoo.interfaces;
 import com.projetopoo.model.CompraModel;
 import java.util.ArrayList;
 
-
 public interface Compra_dao {
+
     void salvar(CompraModel compra);
+
     ArrayList<CompraModel> recuperar();
+
     void alterar(ArrayList<CompraModel> listp);
 }

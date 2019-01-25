@@ -15,15 +15,14 @@ public class AprovadorNivel1 extends AprovarRequisicao {
 
     @Override
     public RequisicaoModel aprovar(RequisicaoModel requisicao) {
-       
-        if(requisicao.getAprovador().getNivelAcesso() == 1){
-              requisicao.setStatus(2);
-              
-        }
-        else if(proximoNivel != null){
+
+        if (requisicao.getAprovador().getNivelAcesso() == 1) {
+            requisicao.setStatus(2);
+
+        } else if (proximoNivel != null) {
             return proximoNivel.aprovar(requisicao);
+        }
+        return requisicao;
     }
-           return requisicao;
-    }
-      
+
 }

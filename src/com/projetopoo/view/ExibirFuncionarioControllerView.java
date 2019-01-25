@@ -8,35 +8,26 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class ExibirFuncionarioControllerView {
-
     @FXML
     private Button btBuscar;
-
     @FXML
     private Button btAlterar;
-
     @FXML
     private TextField tfNome;
-
     @FXML
     private TextField tfCPF;
-
     @FXML
     private TextField tfFuncao;
-
     @FXML
     private TextField tfTelefone;
-
     @FXML
     private TextField tfSalario;
-
     @FXML
     private Button btCancelar;
-
     @FXML
     private Label lbValidacao;
-
     @FXML
+            
     void buscarFuncionario() {
         FuncionarioModel f;
         CadastroFuncionarioController cf = new CadastroFuncionarioController();

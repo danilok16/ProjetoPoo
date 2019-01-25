@@ -9,11 +9,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class CadastroFornecedorControllerView {
-
-    @FXML private Button btCadastrarFornecedor;
-    @FXML private Button btCancelar;
-    @FXML private TextField tfCNPJ;
-    @FXML private TextField tfRazaoS;
+    @FXML 
+    private Button btCadastrarFornecedor;
+    @FXML 
+    private Button btCancelar;
+    @FXML 
+    private TextField tfCNPJ;
+    @FXML 
+    private TextField tfRazaoS;
 
     @FXML
     public void voltarTelaMenu() {

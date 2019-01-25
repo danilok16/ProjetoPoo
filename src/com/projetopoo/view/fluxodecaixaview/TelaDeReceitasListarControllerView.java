@@ -28,88 +28,72 @@ import javafx.scene.control.cell.PropertyValueFactory;
  * @author dkaus
  */
 public class TelaDeReceitasListarControllerView implements Initializable {
-    
-     @FXML
-    private Button btVoltar;
 
+    @FXML
+    private Button btVoltar;
     @FXML
     private ListView<?> lwListaItens;
-
-       @FXML
+    @FXML
     private TableView<CompraModel> tableViewCompra;
-
     @FXML
     private TableColumn<CompraModel, String> tableColumnData;
-
     @FXML
     private TableColumn<CompraModel, String> tableColumnCodigo;
-
     @FXML
     private TableColumn<CompraModel, String> tableColumnValor;
-    
-      @FXML
+    @FXML
     private TableView<ProdutoModel> tableViewItens;
-
-       @FXML
+    @FXML
     private TableColumn<ProdutoModel, String> tableColumnId;
-
-     @FXML
-    private TableColumn<ProdutoModel, String>tableColumnPreco;
-     
+    @FXML
+    private TableColumn<ProdutoModel, String> tableColumnPreco;
     @FXML
     private TableColumn<ProdutoModel, String> tableColumnDescricao;
-
     @FXML
     private TableColumn<ProdutoModel, String> tableColumnQuantidade;
 
     private ArrayList<CompraModel> list = new ArrayList<>();
     private ObservableList<CompraModel> ObservableListDebitos;
-    
-     ArrayList<ProdutoModel> iitemList = new ArrayList<>();
+    ArrayList<ProdutoModel> iitemList = new ArrayList<>();
     private ObservableList<ProdutoModel> ObservableListItens;
     ItemController itemController = new ItemController();
-    
-      // CompraController compraController = new CompraController();
-    
+
     @Override
-    
     public void initialize(URL url, ResourceBundle rb) {
-          this.list = restaurarCompras();
-         carregarTableViewReceitas(this.list);
-         tableViewCompra.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue)  -> selecionarItemTableViewReceitas(newValue));
-    }    
-    
-    public void carregarTableViewReceitas(ArrayList<CompraModel> listp){
-        
+        this.list = restaurarCompras();
+        carregarTableViewReceitas(this.list);
+        tableViewCompra.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> selecionarItemTableViewReceitas(newValue));
+    }
+
+    public void carregarTableViewReceitas(ArrayList<CompraModel> listp) {
         tableColumnCodigo.setCellValueFactory(new PropertyValueFactory<>("idCompra"));
         tableColumnData.setCellValueFactory(new PropertyValueFactory<>("data"));
         tableColumnValor.setCellValueFactory(new PropertyValueFactory<>("valorTot"));
         ObservableListDebitos = FXCollections.observableArrayList(listp);
         tableViewCompra.setItems(ObservableListDebitos);
-       
+
     }
-    
-     public void carregarTableViewItens(ArrayList<ProdutoModel> listItemp){
+
+    public void carregarTableViewItens(ArrayList<ProdutoModel> listItemp) {
         tableColumnDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
-         tableColumnId.setCellValueFactory(new PropertyValueFactory<>("idItem"));
+        tableColumnId.setCellValueFactory(new PropertyValueFactory<>("idItem"));
         tableColumnPreco.setCellValueFactory(new PropertyValueFactory<>("preco"));
         tableColumnQuantidade.setCellValueFactory(new PropertyValueFactory<>("qtdDesejada"));
-       ObservableListItens = FXCollections.observableArrayList(listItemp);
+        ObservableListItens = FXCollections.observableArrayList(listItemp);
         tableViewItens.setItems(ObservableListItens);
     }
-    
-    public void inserirTableViewReceitas(){//????
-         carregarTableViewReceitas(this.list);
-    } 
-    
-       
-    public void selecionarItemTableViewReceitas(CompraModel compra){
-       carregarTableViewItens(compra.getItens());
+
+    public void inserirTableViewReceitas() {
+        carregarTableViewReceitas(this.list);
     }
-    
-    public void backToMenuDespesa(){
-         MainFluxoDeCaixa.trocaTela("DespesasMenuView");
+
+    public void selecionarItemTableViewReceitas(CompraModel compra) {
+        carregarTableViewItens(compra.getItens());
     }
-   
+
+    public void backToMenuDespesa() {
+        MainFluxoDeCaixa.trocaTela("DespesasMenuView");
+    }
+
 }

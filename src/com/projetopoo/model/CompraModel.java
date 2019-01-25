@@ -1,15 +1,17 @@
 package com.projetopoo.model;
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class CompraModel implements Serializable{
+public class CompraModel implements Serializable {
+
     private String idCompra;
     private int qtdItenCompra;
     private String data;
     private float valorTot;
-    private ArrayList <ProdutoModel> itens;
+    private ArrayList<ProdutoModel> itens;
     private boolean fechada;
     private boolean paga;
 
@@ -23,7 +25,7 @@ public class CompraModel implements Serializable{
         this.paga = false;
         //this.itens = itens;
     }
-    
+
     public CompraModel() {
         this.idCompra = "";
         this.qtdItenCompra = 0;
@@ -90,6 +92,5 @@ public class CompraModel implements Serializable{
     public void setPaga(boolean paga) {
         this.paga = paga;
     }
-    
-    
+
 }

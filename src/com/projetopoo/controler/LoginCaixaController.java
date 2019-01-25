@@ -1,4 +1,3 @@
-
 package com.projetopoo.controler;
 
 import com.projetopoo.view.projetoPOO;
@@ -8,9 +7,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class LoginCaixaController {
-    
-    //Bruno Passou por aqui!
 
+    //Bruno Passou por aqui!
     @FXML
     private TextField tfIdFuncionario;
 
@@ -19,11 +17,11 @@ public class LoginCaixaController {
 
     @FXML
     private TextField tfIdCaixa;
-    
+
     @FXML
     private Button btEntrar;
-    
-    public void ChamaCaixa(){
+
+    public void ChamaCaixa() {
         projetoPOO.trocaTela("caixa");
     }
 }

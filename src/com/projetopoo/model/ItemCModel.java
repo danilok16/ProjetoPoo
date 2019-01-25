@@ -13,11 +13,11 @@ import java.util.ArrayList;
  * @author Andrade
  */
 public class ItemCModel extends ProdutoModel implements Serializable {
-    
+
     private int qtdEstoque;
-    
+
     private ArrayList<ItemModel> conjunto;
-    
+
     public ItemCModel(String validade, String idItem, int qtdDesejada) {
         super(validade, idItem, qtdDesejada);
     }
@@ -34,7 +34,7 @@ public class ItemCModel extends ProdutoModel implements Serializable {
 
     @Override
     public float getPreco() {
-        for(ItemModel s:this.conjunto){
+        for (ItemModel s : this.conjunto) {
             this.preco += s.getPreco();
         }
         return preco;

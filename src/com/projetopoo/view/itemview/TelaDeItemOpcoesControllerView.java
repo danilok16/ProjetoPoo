@@ -19,10 +19,11 @@ import javafx.scene.control.Label;
  * @author dkaus
  */
 public class TelaDeItemOpcoesControllerView implements Initializable {
-       @FXML
+
+    @FXML
     private Label lblTitulo;
-    
- @FXML
+
+    @FXML
     private Button btCadatrarItem;
 
     @FXML
@@ -30,28 +31,29 @@ public class TelaDeItemOpcoesControllerView implements Initializable {
 
     @FXML
     private Button btAlterarItem;
-    
-      @FXML
+
+    @FXML
     private Button btVoltar;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
-     public void startCadastroItem(){
+    }
+
+    public void startCadastroItem() {
         MainItem.trocaTela("cadastroItem");
     }
-       public void startListarItem(){
+
+    public void startListarItem() {
         MainItem.trocaTela("listarItem");
     }
-       public void startAlterarItem(){
+
+    public void startAlterarItem() {
         MainItem.trocaTela("alterarItem");
     }
-       
-       public void backToMenuEstoque(){
+
+    public void backToMenuEstoque() {
         projetoPOO.trocaTela("estoqueMenu");
     }
-   
-       
+
 }

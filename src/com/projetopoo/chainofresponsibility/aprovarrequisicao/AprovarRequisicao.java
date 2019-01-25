@@ -12,13 +12,13 @@ import com.projetopoo.model.RequisicaoModel;
  * @author dkaus
  */
 public abstract class AprovarRequisicao {
+
     protected AprovarRequisicao proximoNivel;
-   
-    
-    public void setProximoNivel(AprovarRequisicao proximoNivel){
+
+    public void setProximoNivel(AprovarRequisicao proximoNivel) {
         this.proximoNivel = proximoNivel;
     }
-    
-     public abstract RequisicaoModel aprovar(RequisicaoModel requisicao);
-    
+
+    public abstract RequisicaoModel aprovar(RequisicaoModel requisicao);
+
 }

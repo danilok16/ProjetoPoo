@@ -19,13 +19,13 @@ public class AlterarFornecedorControllerView {
 
     @FXML
     public void voltarTelaMenu() {
-       MainFornecedor.trocaTela("menuFornecedor");
+        MainFornecedor.trocaTela("menuFornecedor");
     }
 
     @FXML
     public void alterar() {
 
-        if (tfCNPJ.getText()!= null && tfRazaoS.getText() != null && tfId.getText() != null) {  //Precisa alterar a validação de entrada vazia, só isso não funciona
+        if (tfCNPJ.getText() != null && tfRazaoS.getText() != null && tfId.getText() != null) {  //Precisa alterar a validação de entrada vazia, só isso não funciona
             int id = Integer.parseInt(tfId.getText());
             FornecedorModel forn = new FornecedorModel(tfCNPJ.getText(), id, tfRazaoS.getText());
             if (FornecedorController.alterarFornecedor(forn)) {
@@ -39,10 +39,9 @@ public class AlterarFornecedorControllerView {
                 dialogoInfo.setHeaderText("Fornecedor nao encontrado no sistema!");
                 dialogoInfo.showAndWait();
             }
-  
-             MainFornecedor.trocaTela("menuFornecedor");
-        }
-        else{
+
+            MainFornecedor.trocaTela("menuFornecedor");
+        } else {
             Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
             dialogoInfo.setTitle("AVISO");
             dialogoInfo.setHeaderText("Por favor preencha todas as informações.");

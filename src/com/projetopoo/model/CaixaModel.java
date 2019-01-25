@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CaixaModel implements Serializable{
+public class CaixaModel implements Serializable {
+
     private String idFuncionario;
     private int qtdItemReg;
     private float somaCaixa;
@@ -26,7 +27,6 @@ public class CaixaModel implements Serializable{
         this.qtdItemReg = 0;
         this.lc = new ArrayList<>();
     }
-
 
     public CompraModel getNovaCompra() {
         return novaCompra;
@@ -57,7 +57,7 @@ public class CaixaModel implements Serializable{
     }
 
     public void setQtdItemReg(int qtdItemReg) {
-        for (CompraModel s:lc){
+        for (CompraModel s : lc) {
             this.qtdItemReg += s.getQtdItenCompra();
         }
     }
@@ -94,34 +94,24 @@ public class CaixaModel implements Serializable{
         this.somaCaixa = somaCaixa;
     }
 
-   /* public String getC(int id) {
-        for (CompraModel s:lc){
-            if(s.getIdCompra() == id){
-                return s.toString();
-            }
-        }
-        return null;
-    }*/
-
     public void setlistaC() {
         this.lc.add(novaCompra);
     }
 
-    public void abrirCaixa(){
+    public void abrirCaixa() {
         this.setAberto(true);
     }
 
-    public void fecharCaixa(){
+    public void fecharCaixa() {
         this.setAberto(false);
     }
 
-   /* public float consultaPreco(int id){
-        return e.consultaPreco(id);
-    }
+    /* public float consultaPreco(int id){
+     return e.consultaPreco(id);
+     }
 
-    public void verificaNoEstoque(){
-        for (ItemModel s:this.novaCompra.getItens()){
-            this.e.removeItemEst(s);
-        }*/
-    }
-
+     public void verificaNoEstoque(){
+     for (ItemModel s:this.novaCompra.getItens()){
+     this.e.removeItemEst(s);
+     }*/
+}

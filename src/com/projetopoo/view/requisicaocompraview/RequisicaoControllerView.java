@@ -24,10 +24,10 @@ public class RequisicaoControllerView {
 
     @FXML
     private DatePicker dpDataDeEntrega;
-    
+
     @FXML
     private TextField tfDescricao;
-    
+
     @FXML
     private DatePicker dpDataDeSolicitacao;
 
@@ -37,16 +37,15 @@ public class RequisicaoControllerView {
     @FXML
     private TextField tfValorTotal;
 
-    
     RequisicaoModel requisicao = new RequisicaoModel();
-  CadastroFuncionarioController f = new CadastroFuncionarioController();
+    CadastroFuncionarioController f = new CadastroFuncionarioController();
 
     @FXML
     void btCancelar() {
-       tfDescricao.setText("");
-       tfQtd.setText("");
-       dpDataDeEntrega.setValue(null);
-       projetoPOO.trocaTela("estoqueMenu");
+        tfDescricao.setText("");
+        tfQtd.setText("");
+        dpDataDeEntrega.setValue(null);
+        projetoPOO.trocaTela("estoqueMenu");
     }
 
     @FXML
@@ -61,7 +60,7 @@ public class RequisicaoControllerView {
         requisicao.setDataDeEmissao(dpDataDeSolicitacao.getValue().toString());
         requisicao.setIdRequisicao(controller.GeraIdRequisicao());
         System.out.println(requisicao.getIdRequisicao());
-        FuncionarioModel requisitante =  f.ConsultaFuncionario(tfIdRequisitante.getText());
+        FuncionarioModel requisitante = f.ConsultaFuncionario(tfIdRequisitante.getText());
         requisicao.setRequisitante(requisitante);
         requisicao.setAprovador(requisitante);
         controller.Aprovar(requisicao);
@@ -76,32 +75,31 @@ public class RequisicaoControllerView {
 
     @FXML
     void selecionarData() {
-       String data;
-       data = dpDataDeEntrega.getValue().toString();
-       requisicao.setDataDeEntrega(data);
+        String data;
+        data = dpDataDeEntrega.getValue().toString();
+        requisicao.setDataDeEntrega(data);
     }
-    
+
     @FXML
-    void selecionarDescricao(){
+    void selecionarDescricao() {
         String descricao;
         descricao = tfDescricao.getText();
         requisicao.setDescricao(descricao);
     }
-    
-    @FXML 
-    void selecionarQuantidade(){
+
+    @FXML
+    void selecionarQuantidade() {
         int quantidade;
         quantidade = Integer.parseInt(tfQtd.getText());
         requisicao.setQtdDesejada(quantidade);
     }
-    
-    private void selicionarRequisitante(){//loop
-      FuncionarioModel requisitante =  f.ConsultaFuncionario(tfIdRequisitante.getText());
-       if(requisitante == null){
-           //testar
-       }
-       else{
+
+    private void selicionarRequisitante() {//loop
+        FuncionarioModel requisitante = f.ConsultaFuncionario(tfIdRequisitante.getText());
+        if (requisitante == null) {
+            //testar
+        } else {
             requisicao.setRequisitante(requisitante);
-       }
+        }
     }
 }

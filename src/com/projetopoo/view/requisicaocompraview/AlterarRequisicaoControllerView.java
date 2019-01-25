@@ -28,7 +28,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
  * @author Túlio
  */
 public class AlterarRequisicaoControllerView implements Initializable {
-    
+
     @FXML
     private Button btConcluir;
 
@@ -43,7 +43,7 @@ public class AlterarRequisicaoControllerView implements Initializable {
 
     @FXML
     private TableColumn<String, RequisicaoModel> tcQtd;
-    
+
     @FXML
     private TableColumn<String, RequisicaoModel> tcStatus;
 
@@ -58,31 +58,30 @@ public class AlterarRequisicaoControllerView implements Initializable {
 
     @FXML
     private DatePicker dpDataDeEntrega;
-    
+
     ArrayList<RequisicaoModel> requisicaoList;
     RequisicaoModel requisicao;
     private ObservableList<RequisicaoModel> observableListTableView;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         recuperarLista();
         carregarTableView();
-        tbRequisicao.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) 
+        tbRequisicao.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue)
                 -> selecionarTableView(newValue));
-    }    
-    
-    public void recuperarLista(){
+    }
+
+    public void recuperarLista() {
         RequisicaoController controller = new RequisicaoController();
         requisicaoList = controller.recuperar();
     }
-    
-    
-    public void alterarData(){
-       requisicao = tbRequisicao.getSelectionModel().getSelectedItem();
+
+    public void alterarData() {
+        requisicao = tbRequisicao.getSelectionModel().getSelectedItem();
         int tam = requisicaoList.size(), i;
-        if(dpDataDeEntrega.getValue().toString() != null){
-            for(i = 0; i < tam; i++){
-                if(requisicaoList.get(i) == requisicao){
+        if (dpDataDeEntrega.getValue().toString() != null) {
+            for (i = 0; i < tam; i++) {
+                if (requisicaoList.get(i) == requisicao) {
                     String data = dpDataDeEntrega.getValue().toString();
                     requisicaoList.get(i).setDataDeEntrega(data);
                 }
@@ -90,13 +89,13 @@ public class AlterarRequisicaoControllerView implements Initializable {
         }
         carregarTableView();
     }
-    
-    public void alterarQtdDesejada(){
+
+    public void alterarQtdDesejada() {
         requisicao = tbRequisicao.getSelectionModel().getSelectedItem();
         int tam = requisicaoList.size(), i;
-        if(tfQtd.getText() != null){
-            for(i = 0; i < tam; i++){
-                if(requisicaoList.get(i) == requisicao){
+        if (tfQtd.getText() != null) {
+            for (i = 0; i < tam; i++) {
+                if (requisicaoList.get(i) == requisicao) {
                     requisicaoList.get(i).setQtdDesejada(Integer.parseInt(tfQtd.getText()));
                     tfQtd.setText("");
                 }
@@ -104,16 +103,16 @@ public class AlterarRequisicaoControllerView implements Initializable {
         }
         carregarTableView();
     }
-    
-    public void selecionarTableView(RequisicaoModel Requisicao){
-        
+
+    public void selecionarTableView(RequisicaoModel Requisicao) {
+
     }
-    
-    public void carregarTableView(){
+
+    public void carregarTableView() {
         ArrayList<RequisicaoModel> listaAuxiliar = new ArrayList<>();
         int tam = requisicaoList.size();
-        for(int i = 0; i < tam; i++){
-            if(requisicaoList.get(i).getStatus() == 1){
+        for (int i = 0; i < tam; i++) {
+            if (requisicaoList.get(i).getStatus() == 1) {
                 listaAuxiliar.add(requisicaoList.get(i));
             }
         }
@@ -124,9 +123,8 @@ public class AlterarRequisicaoControllerView implements Initializable {
         tcDataDeEntrega.setCellValueFactory(new PropertyValueFactory<>("DataDeEntrega"));
         tcStatus.setCellValueFactory(new PropertyValueFactory<>("Status"));
     }
-    
-    
-    public void removerRequisicao(){
+
+    public void removerRequisicao() {
         RequisicaoModel removerRequisicao = tbRequisicao.getSelectionModel().getSelectedItem();
         int indice;
         tbRequisicao.getItems().remove(removerRequisicao);
@@ -134,15 +132,15 @@ public class AlterarRequisicaoControllerView implements Initializable {
         removerRequisicao.setStatus(0); //Seta o status da requisição pra false
         requisicaoList.add(indice, removerRequisicao); //Altera
     }
-    
 
-      public void btCancelar(){
+    public void btCancelar() {
         tfQtd.setText("");
         projetoPOO.trocaTela("estoqueMenu");
         observableListTableView.clear();
     }
-    public void btConcluir(){
+
+    public void btConcluir() {
         RequisicaoController controller = new RequisicaoController();
         controller.atualizarLista(requisicaoList);
-    }    
+    }
 }

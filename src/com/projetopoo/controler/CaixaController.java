@@ -13,37 +13,38 @@ import java.util.ArrayList;
  * @author Andrade
  */
 public class CaixaController {
-    
+
     public static void somaItemCaixa(ProdutoModel a, ArrayList<ProdutoModel> itens, CompraModel compraA) {
-        itens.add(a);    
+        itens.add(a);
         compraA.setQtdItenCompra(compraA.getQtdItenCompra() + a.getQtdDesejada());
         compraA.setValorTot(compraA.getValorTot() + (a.getPreco() * a.getQtdDesejada()));
         compraA.setItens(itens);
     }
-    
+
     public static int findItem(ProdutoModel a, ArrayList<ProdutoModel> itens) {
         for (ProdutoModel s : itens) {
-            if(s.getIdItem().equals(a.getIdItem()) ){
+            if (s.getIdItem().equals(a.getIdItem())) {
                 return 1;
             }
         }
         return 0;
     }
+
     public static void modificaQtdItem(ProdutoModel a, ArrayList<ProdutoModel> itens, CompraModel compraA) {
-        for(ProdutoModel s:itens){
-            if(s.getIdItem() == a.getIdItem()){
-                s.setQtdDesejada(s.getQtdDesejada()+a.getQtdDesejada());
+        for (ProdutoModel s : itens) {
+            if (s.getIdItem() == a.getIdItem()) {
+                s.setQtdDesejada(s.getQtdDesejada() + a.getQtdDesejada());
                 compraA.setItens(itens);
             }
         }
     }
-    
-    public static void subValorTot(ProdutoModel a, CompraModel compraA){
+
+    public static void subValorTot(ProdutoModel a, CompraModel compraA) {
         compraA.setValorTot(compraA.getValorTot() - (a.getQtdDesejada() * a.getPreco()));
     }
-    
-    public static void removerItemCaixaController(ProdutoModel itemRe, CompraModel compraA){
-            System.out.println("Item removido: " + itemRe.getIdItem());
-            subValorTot(itemRe, compraA);
+
+    public static void removerItemCaixaController(ProdutoModel itemRe, CompraModel compraA) {
+        System.out.println("Item removido: " + itemRe.getIdItem());
+        subValorTot(itemRe, compraA);
     }
 }

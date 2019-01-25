@@ -6,9 +6,7 @@ import javafx.fxml.FXML;
 
 import javafx.scene.control.Button;
 
-
-public  class TelaInicialController {
-  
+public class TelaInicialController {
 
     @FXML
     private Button btFinancieiro;
@@ -18,10 +16,8 @@ public  class TelaInicialController {
 
     @FXML
     private Button btCaixa;
-  
-    
-    
-    public void chamaLoginCaixa(){
+
+    public void chamaLoginCaixa() {
         projetoPOO.trocaTela("loginCaixa");
     }
 }

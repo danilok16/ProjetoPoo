@@ -14,17 +14,14 @@ import com.projetopoo.model.RequisicaoModel;
 public class AprovadorNivel3 extends AprovarRequisicao {
 
     @Override
-    public RequisicaoModel aprovar( RequisicaoModel requisicao) {
-      if(requisicao.getAprovador().getNivelAcesso() == 3 && requisicao.getValorTotal() < 10000){
-         requisicao.setStatus(5);
+    public RequisicaoModel aprovar(RequisicaoModel requisicao) {
+        if (requisicao.getAprovador().getNivelAcesso() == 3 && requisicao.getValorTotal() < 10000) {
+            requisicao.setStatus(5);
+        } else if (proximoNivel != null && requisicao.getAprovador().getNivelAcesso() >= 3) {
+            requisicao.setStatus(4);
+            return proximoNivel.aprovar(requisicao);
         }
-        else if(proximoNivel != null && requisicao.getAprovador().getNivelAcesso() >= 3){
-             requisicao.setStatus(4);
-             return proximoNivel.aprovar(requisicao);
-        }
-    return requisicao;
+        return requisicao;
     }
 
-  
-    
 }

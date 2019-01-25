@@ -21,27 +21,26 @@ public class TelaDeDespesasControllerView implements Initializable {
 
     @FXML
     private Button btTodasDespesa;
-
     @FXML
     private Button btInserirNovaDespesa;
-
     @FXML
     private Button btVoltar;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
-    public void startInserirDespesa(){
-         MainFluxoDeCaixa.trocaTela("InserirDespesaView");
     }
-    public void startListarDespesas(){
+
+    public void startInserirDespesa() {
+        MainFluxoDeCaixa.trocaTela("InserirDespesaView");
+    }
+
+    public void startListarDespesas() {
         MainFluxoDeCaixa.trocaTela("ListarDespesaView");
     }
-    
-    public void startFluxoDeCaixa(){
-         projetoPOO.trocaTela("fluxoDeCaixa");
+
+    public void startFluxoDeCaixa() {
+        projetoPOO.trocaTela("fluxoDeCaixa");
     }
-    
+
 }

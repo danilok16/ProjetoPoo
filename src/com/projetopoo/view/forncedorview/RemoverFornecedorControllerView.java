@@ -9,32 +9,31 @@ public class RemoverFornecedorControllerView {
 
     @FXML
     private TextField tfId;
-    
+
     @FXML
     public void voltarTelaMenu() {
         tfId.setText("");
         MainFornecedor.trocaTela("menuFornecedor");
     }
-    
-    @FXML 
-    public void removerFornecedor(){
-        if(tfId.getText() != null){  //Precisa alterar a validação de entrada vazia, só isso não funciona
-            
-            if(FornecedorController.removerFornecedor(tfId.getText())){
+
+    @FXML
+    public void removerFornecedor() {
+        if (tfId.getText() != null) {  //Precisa alterar a validação de entrada vazia, só isso não funciona
+
+            if (FornecedorController.removerFornecedor(tfId.getText())) {
                 Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
                 dialogoInfo.setTitle("AVISO");
                 dialogoInfo.setHeaderText("Fornecedor removido com sucesso!");
                 dialogoInfo.showAndWait();
-            }else{
+            } else {
                 Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
                 dialogoInfo.setTitle("AVISO");
                 dialogoInfo.setHeaderText("Fornecedor não cadastrado!");
                 dialogoInfo.showAndWait();
             }
-            
-           MainFornecedor.trocaTela("menuFornecedor");
-        }
-        else{
+
+            MainFornecedor.trocaTela("menuFornecedor");
+        } else {
             Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
             dialogoInfo.setTitle("AVISO");
             dialogoInfo.setHeaderText("Por favor preencha todas as informações.");

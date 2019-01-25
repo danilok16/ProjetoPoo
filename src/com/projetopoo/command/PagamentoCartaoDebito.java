@@ -11,11 +11,11 @@ import com.projetopoo.model.CompraModel;
  *
  * @author Túlio
  */
-public class PagamentoCartaoDebito implements PagamentoCommand{
+public class PagamentoCartaoDebito implements PagamentoCommand {
 
     @Override
     public boolean processarCompra(CompraModel compra) {
         return true;
     }
-    
+
 }

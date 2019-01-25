@@ -4,27 +4,33 @@
  * and open the template in the editor.
  */
 package com.projetopoo.dao;
+
 import com.projetopoo.interfaces.Fornecedor_dao;
 /**
  *
  * @author Téo
  */
 import com.projetopoo.model.FornecedorModel;
-import java.util.ArrayList;/**
+import java.util.ArrayList;
+
+/**
  *
  * @author Téo
  */
-public class FornecedorDAOMem implements Fornecedor_dao{
+public class FornecedorDAOMem implements Fornecedor_dao {
 
     private static FornecedorDAOMem instance;
-    private FornecedorDAOMem() {}
-    
-    public static FornecedorDAOMem getInstance(){
-        if (instance == null){
+
+    private FornecedorDAOMem() {
+    }
+
+    public static FornecedorDAOMem getInstance() {
+        if (instance == null) {
             instance = new FornecedorDAOMem();
         }
         return instance;
     }
+
     @Override
     public void salvar(FornecedorModel compra) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -39,5 +45,5 @@ public class FornecedorDAOMem implements Fornecedor_dao{
     public void alterar(ArrayList<FornecedorModel> listp) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

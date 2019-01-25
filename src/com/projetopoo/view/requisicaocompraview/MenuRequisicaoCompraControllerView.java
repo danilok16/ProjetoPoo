@@ -16,8 +16,9 @@ import javafx.scene.control.Button;
  *
  * @author dkaus
  */
-public class MenuRequisicaoCompraControllerView implements Initializable{
-   @FXML
+public class MenuRequisicaoCompraControllerView implements Initializable {
+
+    @FXML
     private Button btCriarRequisicao;
 
     @FXML
@@ -32,27 +33,29 @@ public class MenuRequisicaoCompraControllerView implements Initializable{
     @FXML
     private Button btVoltar;
 
-   
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-      //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-      public void startCriarRequisicao(){
-         MainRequisicaoDeCompra.trocaTela("requisicao");
+
+    public void startCriarRequisicao() {
+        MainRequisicaoDeCompra.trocaTela("requisicao");
     }
-       public void startConsultarRequisicao(){
-         MainRequisicaoDeCompra.trocaTela("consultarRequisicao");
+
+    public void startConsultarRequisicao() {
+        MainRequisicaoDeCompra.trocaTela("consultarRequisicao");
     }
-        public void startAlterarRequisicao(){
-         MainRequisicaoDeCompra.trocaTela("alterarRequisicao");
+
+    public void startAlterarRequisicao() {
+        MainRequisicaoDeCompra.trocaTela("alterarRequisicao");
     }
-         public void startAprovarRequisicao(){
-         MainRequisicaoDeCompra.trocaTela("aprovarRequisicao");
+
+    public void startAprovarRequisicao() {
+        MainRequisicaoDeCompra.trocaTela("aprovarRequisicao");
     }
-          public void backToMenuEstoque(){
+
+    public void backToMenuEstoque() {
         projetoPOO.trocaTela("estoqueMenu");
     }
-         
+
 }

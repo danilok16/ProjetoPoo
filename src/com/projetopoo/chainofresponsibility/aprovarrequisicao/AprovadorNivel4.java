@@ -11,18 +11,16 @@ import com.projetopoo.model.RequisicaoModel;
  *
  * @author dkaus
  */
-public class AprovadorNivel4 extends AprovarRequisicao{
+public class AprovadorNivel4 extends AprovarRequisicao {
 
     @Override
     public RequisicaoModel aprovar(RequisicaoModel requisicao) {
-       if(requisicao.getAprovador().getNivelAcesso() >= 4){
-         requisicao.setStatus(5);
-        }
-        else if(proximoNivel != null){
+        if (requisicao.getAprovador().getNivelAcesso() >= 4) {
+            requisicao.setStatus(5);
+        } else if (proximoNivel != null) {
             return proximoNivel.aprovar(requisicao);
         }
-       return requisicao;
+        return requisicao;
     }
 
-  
 }

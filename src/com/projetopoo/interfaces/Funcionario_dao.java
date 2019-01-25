@@ -13,7 +13,10 @@ import java.util.ArrayList;
  * @author Téo
  */
 public interface Funcionario_dao {
+
     void salvar(FuncionarioModel compra);
+
     ArrayList<FuncionarioModel> recuperar();
+
     void alterar(ArrayList<FuncionarioModel> listp);
 }

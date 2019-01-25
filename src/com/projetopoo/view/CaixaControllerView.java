@@ -2,7 +2,6 @@ package com.projetopoo.view;
 
 import com.projetopoo.controler.*;
 import com.projetopoo.model.*;
-import com.projetopoo.view.itemview.MainItem;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,12 +21,18 @@ import javafx.scene.input.KeyEvent;
 
 public class CaixaControllerView implements Initializable{
 
-    @FXML private TableView <ProdutoModel> tvItens;
-    @FXML private TableColumn<?, ?> TCVDescricao;
-    @FXML private TableColumn<?, ?> TVCidItem;
-    @FXML private TableColumn<?, ?> TVCQtd;
-    @FXML private TableColumn<?, ?> TVCPreco;
-    @FXML private Label lbTotal;
+    @FXML 
+    private TableView <ProdutoModel> tvItens;
+    @FXML 
+    private TableColumn<?, ?> TCVDescricao;
+    @FXML 
+    private TableColumn<?, ?> TVCidItem;
+    @FXML 
+    private TableColumn<?, ?> TVCQtd;
+    @FXML 
+    private TableColumn<?, ?> TVCPreco;
+    @FXML 
+    private Label lbTotal;
     @FXML
     private TextField tfCodigoProduto;
 
@@ -76,8 +81,6 @@ public class CaixaControllerView implements Initializable{
                     b.setPreco(itemCon.consultarItem(tfCodigoProduto.getText()).getPreco());
                     b.setDescricao(itemCon.consultarItem(tfCodigoProduto.getText()).getDescricao());
                     CaixaController.somaItemCaixa(b, listaItensTV, compraA);
-                    itemCon.CalcularDesconto(b);
-                    System.out.println(b.getDesconto());
                 }else{
                     lblAdicionado.setText("Acabou o Estoque!");
                 }

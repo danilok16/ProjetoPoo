@@ -11,7 +11,8 @@ import java.io.Serializable;
  *
  * @author Túlio
  */
-public abstract class PessoaModel implements Serializable{
+public abstract class PessoaModel implements Serializable {
+
     protected String nome;
     protected String tel;
     protected String id;
@@ -24,7 +25,6 @@ public abstract class PessoaModel implements Serializable{
         this.cpf = cpf;
     }
 
-    
     public String getNome() {
         return nome;
     }
@@ -56,6 +56,5 @@ public abstract class PessoaModel implements Serializable{
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-    
-    
+
 }

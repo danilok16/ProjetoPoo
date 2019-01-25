@@ -16,32 +16,29 @@ public class ConsultarFornecedorControllerView {
         tfId.setText("");
         MainFornecedor.trocaTela("menuFornecedor");
     }
-    
-    @FXML 
-    public void consultarFornecedor(){
-        if(tfId.getText() != null){ //Precisa alterar a validação de entrada vazia, só isso não funciona
+
+    @FXML
+    public void consultarFornecedor() {
+        if (tfId.getText() != null) { //Precisa alterar a validação de entrada vazia, só isso não funciona
             FornecedorModel consulta = FornecedorController.ConsultaFornecedor(tfId.getText());
-            
-            if(consulta != null){
+
+            if (consulta != null) {
                 Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
                 dialogoInfo.setHeaderText("CNPJ: " + consulta.getCnpj() + "\nRazão Social: " + consulta.getRazaoSocial());
                 dialogoInfo.showAndWait();
-            }
-            else{
+            } else {
                 Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
                 dialogoInfo.setTitle("AVISO");
                 dialogoInfo.setHeaderText("O fornecedor não foi encontrado no sitema!");
                 dialogoInfo.showAndWait();
             }
-        }
-        else{
+        } else {
             Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
-                dialogoInfo.setTitle("AVISO");
-                dialogoInfo.setHeaderText("Por favor preencha todas as informações!");
-                dialogoInfo.showAndWait();
+            dialogoInfo.setTitle("AVISO");
+            dialogoInfo.setHeaderText("Por favor preencha todas as informações!");
+            dialogoInfo.showAndWait();
         }
         tfId.setText("");
     }
-    
-    
+
 }

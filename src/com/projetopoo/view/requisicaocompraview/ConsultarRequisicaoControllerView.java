@@ -18,8 +18,8 @@ import javafx.scene.control.TextField;
  * @author dkaus
  */
 public class ConsultarRequisicaoControllerView {
-    
-        @FXML
+
+    @FXML
     private TextField tfQtd;
 
     @FXML
@@ -42,32 +42,32 @@ public class ConsultarRequisicaoControllerView {
 
     @FXML
     private TextField tfIdRequisicao;
-    
+
     @FXML
     private Button btVoltar;
-     RequisicaoController c = new RequisicaoController();
-     
+    RequisicaoController c = new RequisicaoController();
+
     @FXML
     private Button btPesquisar;
-    
-     @FXML
-    void consultar(){
-       
-        RequisicaoModel r =  c.consultar(tfIdRequisicao.getText());
-        if(r != null){
+
+    @FXML
+    void consultar() {
+
+        RequisicaoModel r = c.consultar(tfIdRequisicao.getText());
+        if (r != null) {
             tfDescricao.setText(r.getDescricao());
             tfValorTotal.setText(String.valueOf(r.getValorTotal()));
             tfStatus.setText(String.valueOf(r.getStatus()));
-        }
-        else{
+        } else {
             Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
-                 dialogoInfo.setTitle("AVISO");
-                 dialogoInfo.setHeaderText("NÃO EXISTE EQUISIÇÃO COM ID: "+tfIdRequisicao.getText());
-                dialogoInfo.showAndWait();
+            dialogoInfo.setTitle("AVISO");
+            dialogoInfo.setHeaderText("NÃO EXISTE EQUISIÇÃO COM ID: " + tfIdRequisicao.getText());
+            dialogoInfo.showAndWait();
         }
     }
-     public void backToMenuRequisicao(){
-     MainRequisicaoDeCompra.trocaTela("menuRequisicao");
-         
+
+    public void backToMenuRequisicao() {
+        MainRequisicaoDeCompra.trocaTela("menuRequisicao");
+
     }
 }

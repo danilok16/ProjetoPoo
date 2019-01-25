@@ -28,10 +28,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
  *
  * @author dkaus
  */
-public class AprovarRequisicaoControllerView implements Initializable  {
-    
-    
-       @FXML
+public class AprovarRequisicaoControllerView implements Initializable {
+
+    @FXML
     private TableView<RequisicaoModel> tbViewRequisicoes;
 
     @FXML
@@ -42,7 +41,6 @@ public class AprovarRequisicaoControllerView implements Initializable  {
 
     @FXML
     private TextField tfDescricao;
-
 
     @FXML
     private TextField tfIdRequisitante;
@@ -55,14 +53,14 @@ public class AprovarRequisicaoControllerView implements Initializable  {
 
     @FXML
     private TextField tfIdRequisicao;
-    
-     @FXML
+
+    @FXML
     private TextField tfDataSolicitacao;
 
     @FXML
     private TextField tfDataEntrega;
-    
-     @FXML
+
+    @FXML
     private TextField tfAprovador;
 
     @FXML
@@ -71,7 +69,6 @@ public class AprovarRequisicaoControllerView implements Initializable  {
     @FXML
     private Button btVoltar;
 
-    
     ArrayList<RequisicaoModel> requisicaoList = new ArrayList<>();
     private ObservableList<RequisicaoModel> ObservableListRequisicoes;
     RequisicaoController c = new RequisicaoController();
@@ -79,55 +76,53 @@ public class AprovarRequisicaoControllerView implements Initializable  {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
-       
-       tbViewRequisicoes.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue)  -> selecionarItemTableViewItens(newValue));
-       
+
+        tbViewRequisicoes.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> selecionarItemTableViewItens(newValue));
+
     }
-    
-    
-    public void requisicoes(){
-      requisicaoList =  c.requisicoesPendentes(tfAprovador.getText());
-      carregarTableViewRequisicoes(requisicaoList);
+
+    public void requisicoes() {
+        requisicaoList = c.requisicoesPendentes(tfAprovador.getText());
+        carregarTableViewRequisicoes(requisicaoList);
     }
-      public void carregarTableViewRequisicoes(ArrayList<RequisicaoModel> listp){
-          
-       tbCRequisicao.setCellValueFactory(new PropertyValueFactory<>("idRequisicao"));
-       ObservableListRequisicoes = FXCollections.observableArrayList(listp);
+
+    public void carregarTableViewRequisicoes(ArrayList<RequisicaoModel> listp) {
+
+        tbCRequisicao.setCellValueFactory(new PropertyValueFactory<>("idRequisicao"));
+        ObservableListRequisicoes = FXCollections.observableArrayList(listp);
         tbViewRequisicoes.setItems(ObservableListRequisicoes);
     }
-     
-       public static final LocalDate LOCAL_DATE (String dateString){
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-    LocalDate localDate = LocalDate.parse(dateString, formatter);
-    return localDate;
-         }
-      
-   public void selecionarItemTableViewItens(RequisicaoModel requisicao){
-       tfDescricao.setText(requisicao.getDescricao());
-       tfQtd.setText(String.valueOf(requisicao.getQtdDesejada()));
-       tfValorTotal.setText(String.valueOf(requisicao.getValorTotal()));
-       tfStatus.setText(String.valueOf(requisicao.getStatus()));
-       tfIdRequisicao.setText(requisicao.getIdRequisicao());
-       tfIdRequisitante.setText(requisicao.getRequisitante().getNome());
-       tfDataEntrega.setText(requisicao.getDataDeEntrega());
-       tfDataSolicitacao.setText(requisicao.getDataDeEmissao());
-       this.requisicao = requisicao;
+
+    public static final LocalDate LOCAL_DATE(String dateString) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate localDate = LocalDate.parse(dateString, formatter);
+        return localDate;
     }
-    
-   
-   public void aprovarRequiscao(){
-       CadastroFuncionarioController f = new CadastroFuncionarioController();
-      FuncionarioModel aprovador = f.ConsultaFuncionario(tfAprovador.getText());
-       requisicao.setAprovador(aprovador);
-       c.Aprovar(this.requisicao);
-      c.alterar(requisicao);
-   }
-   
-     public void backToMenuRequisicao(){
-     MainRequisicaoDeCompra.trocaTela("menuRequisicao");
-         
+
+    public void selecionarItemTableViewItens(RequisicaoModel requisicao) {
+        tfDescricao.setText(requisicao.getDescricao());
+        tfQtd.setText(String.valueOf(requisicao.getQtdDesejada()));
+        tfValorTotal.setText(String.valueOf(requisicao.getValorTotal()));
+        tfStatus.setText(String.valueOf(requisicao.getStatus()));
+        tfIdRequisicao.setText(requisicao.getIdRequisicao());
+        tfIdRequisitante.setText(requisicao.getRequisitante().getNome());
+        tfDataEntrega.setText(requisicao.getDataDeEntrega());
+        tfDataSolicitacao.setText(requisicao.getDataDeEmissao());
+        this.requisicao = requisicao;
     }
-        
+
+    public void aprovarRequiscao() {
+        CadastroFuncionarioController f = new CadastroFuncionarioController();
+        FuncionarioModel aprovador = f.ConsultaFuncionario(tfAprovador.getText());
+        requisicao.setAprovador(aprovador);
+        c.Aprovar(this.requisicao);
+        c.alterar(requisicao);
+    }
+
+    public void backToMenuRequisicao() {
+        MainRequisicaoDeCompra.trocaTela("menuRequisicao");
+
+    }
+
 }

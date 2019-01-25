@@ -11,7 +11,7 @@ import com.projetopoo.model.CompraModel;
  *
  * @author Túlio
  */
-public class PagamentoDinheiro implements PagamentoCommand{
+public class PagamentoDinheiro implements PagamentoCommand {
 
     @Override
     public boolean processarCompra(CompraModel compra) {

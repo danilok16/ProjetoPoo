@@ -2,7 +2,8 @@ package com.projetopoo.model;
 
 import java.io.Serializable;
 
-public class FornecedorModel implements Serializable{
+public class FornecedorModel implements Serializable {
+
     private String cnpj;
     private int idForn;
     private String razaoSocial;

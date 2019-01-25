@@ -13,7 +13,10 @@ import java.util.ArrayList;
  * @author Andrade
  */
 public interface Requisicao_dao {
+
     void salvar(RequisicaoModel compra);
+
     ArrayList<RequisicaoModel> recuperar();
+
     void alterar(ArrayList<RequisicaoModel> listp);
 }
